@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <title>Escape Rooms</title>
+    <style>
+        #inventory {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
     <a-scene>
-        
+
         <a-box color="blue" id="toyCube" position="3 1 0" width="2" height="2" depth="2"></a-box>
-        <a-box color="red" id="toyRecipient" position="0 1 0" width="2" height="2" depth="2"> 
-            
+        <a-box color="yellow" id="toyCube2" position="6 1 0" width="2" height="2" depth="2"></a-box>
+        <a-box color="red" id="toyRecipient" position="0 1 0" width="2" height="2" depth="2">
+
         </a-box>
         <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="green"></a-plane>
         <a-sky color="#ECECEC"></a-sky>
@@ -20,7 +33,9 @@
         <a-camera>
             <a-cursor geometry="primitive: ring" material="color: #FFC0CB;    shader: flat"></a-cursor>
         </a-camera>
-      </a-scene>
+    </a-scene>
+    <div id="inventory">Inventory: Empty</div>
 </body>
 <script src="script.js"></script>
+
 </html>
