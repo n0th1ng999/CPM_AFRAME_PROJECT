@@ -95,7 +95,7 @@ loop = () => {
         //If it collides with the recipient it will enter a state where it can not move no more
         if (isColliding(obj.domElement, toyRecipient)) {
           obj.deposited = true;
-          obj.domElement.setAttribute("position", { x: 0, y: 1, z: 0 });
+          obj.domElement.setAttribute("position", { x: 0, y: 100, z: 0 });
           obj.domElement.setAttribute("rotation", { x: 0, y: 0, z: 0 });
         }
       }
