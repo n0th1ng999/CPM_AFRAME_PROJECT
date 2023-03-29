@@ -46,7 +46,12 @@ class grabbableObject {
   }
 }
 
+// ITEMS THAT THE PLAYER HAS IN HIS INVENTORY
 let inventory = [];
+
+// LIST OF OBJECTS ADDED TO THE BOXES (IF THE TOTAL EQUALS THE AMOUNT NEEDED THAN YOU FINISH THE LEVEL)
+let completed = [];
+
 //FIRST LEVEL OBJECTS
 let toyRecipient = document.querySelector("#toyRecipient");
 //TOYS  ---> Need to be created in html <---
@@ -97,6 +102,10 @@ loop = () => {
           obj.deposited = true;
           obj.domElement.setAttribute("position", { x: 0, y: 100, z: 0 });
           obj.domElement.setAttribute("rotation", { x: 0, y: 0, z: 0 });
+          completed.push(obj.domElement.id);
+          if (completed.length == grabbableToysArray.length) {
+            console.log("level completed!");
+          }
         }
       }
   });
