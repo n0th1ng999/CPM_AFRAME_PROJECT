@@ -40,6 +40,9 @@ let toyCube2 = new grabbableObject("#toyCube2");
 //TOYS ARRAY
 let grabbableToysArray = [toyCube, toyCube2];
 
+//STARTING DOOR
+let startingDoor = document.querySelector("#portaInicial");
+
 // Test to remove items from the inventory
 deleteInventory = () => {
   // Clear the inventory array and update the inventory display
@@ -99,6 +102,10 @@ loop = () => {
 
   window.requestAnimationFrame(loop);
 };
+
+portaInicial.addEventListener("click", () => {
+  portaInicial.components.sound.playSound();
+});
 
 isColliding = (obj1, obj2) => {
   let bbox1 = new THREE.Box3().setFromObject(obj1.object3D);

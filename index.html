@@ -8,6 +8,9 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <title>Escape Rooms</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.0.0/dist/aframe-extras.min.js"></script>
+
 </head>
 
 <body>
@@ -23,13 +26,21 @@
             <img id="toy1NRM" src="/Textures/ToyBlueNormal.jpg">
             <img id="toy2" src="/Textures/ToyRed.jpg">
             <img id="toy2NRM" src="/Textures/ToyRedNormal.jpg">
+            <img id="inicialWall" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_ao.jpg">
+            <img id="inicialWallNRM" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_normal.jpg">
+            <img id="doorKnob" src="/Textures/Door-Handle-PNG-Image.png">
+            <img id="ground" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_albedo.jpg">
+            <img id="groundNRM" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_normal.jpg">
+            <img id="kidRoom" src="/Textures/ChildRoom.jpg">
+            <img id="kidRoomNRM" src="/Textures/ChildRoomNormal.jpg">
             <!------------------------SOUNDS--------------------------->
             <audio id="happySong" src="./Sounds/Happy Town Theme - Ogg.ogg"></audio>
             <audio id="wood" src="./Sounds/door2.mp3"></audio>
+            <audio id="door4open" src="./Sounds/door4open.mp3"></audio>
         </a-assets>
 
-        <a-camera>
-            <a-cursor geometry="primitive: ring" material="color: #FFC0CB;    shader: flat"></a-cursor>
+        <a-camera position="0 3 -20" rotation="0 180 0">
+            <a-cursor geometry="primitive: ring" material="color: #FFC0CB;shader: flat"></a-cursor>
         </a-camera>
 
 
@@ -45,14 +56,119 @@
         <!-----------------CAIXA RECIPIENTE------------------>
         <a-entity id="toyRecipient" obj-model="obj: #boxOBJ" material="color: #ffffff;
                             src: #box;
-                            normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 180 0" position="1 0 -15"
+                            normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 0 0" position="1 0 15"
             shadow="cast: true" sound="src: #wood; volume: 5" play>
         </a-entity>
 
+        <!-------------------DIVISÃO iNICIAL---------------------->
+
+        <a-box material="color: #ffffff;
+            src: #inicialWall;
+            repeat: 1 0.9;
+            normal-map: #inicialWallNRM;
+            normal-texture-repeat: 1 0.19" scale="7 5 0.5" position="-4.5 2.5 -15">
 
         </a-box>
-        <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="green"></a-plane>
-        <a-sky color="#ECECEC"></a-sky>
+
+        <a-box material="color: #ffffff;
+            src: #inicialWall;
+            repeat: 1 0.9;
+            normal-map: #inicialWallNRM;
+            normal-texture-repeat: 1 0.19" scale="7 5 0.5" position="4.5 2.5 -15">
+
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #inicialWall;
+            repeat: 0.350 0.4;
+            normal-map: #inicialWallNRM;
+            normal-texture-repeat: 0.350 0.4" scale="2 1.5 0.5" position="0 4.250 -15">
+
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #inicialWall;
+            repeat: 1 0.9;
+            normal-map: #inicialWallNRM;
+            normal-texture-repeat: 1 0.9" scale="10 5 0.5" position="8.245 2.5 -19.750" rotation="0 90 0">
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #inicialWall;
+            repeat: 1 0.9;
+            normal-map: #inicialWallNRM;
+            normal-texture-repeat: 1 0.9" scale="10 5 0.5" position="-8.245 2.5 -19.750" rotation="0 90 0">
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #inicialWall;
+            repeat: 2 0.9;
+            normal-map: #inicialWallNRM;
+            normal-texture-repeat: 2 0.9" scale="17 5 0.5" position="0 2.5 -25">
+        </a-box>
+
+        <a-box id="portaInicial" material="color: #ffffff;
+                          src: #inicialWall;
+                          repeat: 0.5 0.7;
+                          normal-map: #inicialWallNRM" scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 -15"
+            sound="src: #door4open; volume: 5" play
+            event-set__DoorOpen="_event: click; _target: #portaInicial; rotation: 0 90 0; position: 0.750 1.75 -14.265">
+
+            <a-image material="color: #ffffff;
+                src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.300 0.200 0.200">
+            </a-Image>
+
+        </a-box>
+
+        <!---------------------------PRIMEIRO QUARTO--------------------------------------->
+
+        <a-box material="color: #ffffff;
+            src: #kidRoom;
+            repeat: 2 0.9;
+            normal-map: #kidRoomNRM;
+            normal-texture-repeat: 2 0.9" scale="15 5 0.5" position="-8.495 1 -14.490">
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #kidRoom;
+            repeat: 2 0.9;
+            normal-map: #kidRoomNRM;
+            normal-texture-repeat: 2 0.9" scale="15 5 0.5" position="8.495 1 -14.490">
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #kidRoom;
+            repeat: 3.400 0.280;
+            normal-map: #kidRoomNRM;
+            normal-texture-repeat: 3.400 0.280" scale="32 1.5 0.5" position="0 4.250 -14.490">
+
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #kidRoom;
+            repeat: 3.400 0.9;
+            normal-map: #kidRoomNRM;
+            normal-texture-repeat: 3.400 0.9" scale="32 5 0.5" position="-16.250 2.5 1.265" rotation="0 90 0">
+
+        </a-box>
+
+        <a-box material="color: #ffffff;
+            src: #kidRoom;
+            repeat: 3.400 0.9;
+            normal-map: #kidRoomNRM;
+            normal-texture-repeat: 3.400 0.9" scale="32 5 0.5" position="16.250 2.5 1.265" rotation="0 90 0">
+
+        </a-box>
+
+        <a-box
+            material="color: #ffffff; src: #kidRoom; repeat: 2 0.9; normalMap: #kidRoomNRM; normalTextureRepeat: 2 0.9"
+            scale="15 5 0.5" position="-8.495 1 17.00932" geometry="">
+        </a-box>
+
+        <!-------------------------CHÃO-------------------------------->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="500" height="500" color="green"
+            material="color: #ffffff; src: #ground; normal-map: #groundNRM; repeat: 10 10; normal-texture-repeat: 10 10"></a-plane>
+        <a-sky color=" #ECECEC"></a-sky>
 
         <!--sounds-->
         <a-entity id="happySong"
