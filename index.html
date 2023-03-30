@@ -56,7 +56,7 @@
         <!-----------------CAIXA RECIPIENTE------------------>
         <a-entity id="toyRecipient" obj-model="obj: #boxOBJ" material="color: #ffffff;
                             src: #box;
-                            normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 0 0" position="1 0 15"
+                            normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 0 0" position="7 0 15"
             shadow="cast: true" sound="src: #wood; volume: 5" play>
         </a-entity>
 
@@ -160,9 +160,34 @@
 
         </a-box>
 
-        <a-box
-            material="color: #ffffff; src: #kidRoom; repeat: 2 0.9; normalMap: #kidRoomNRM; normalTextureRepeat: 2 0.9"
-            scale="15 5 0.5" position="-8.495 1 17.00932" geometry="">
+        <a-box material="color: #ffffff; 
+            src: #kidRoom; 
+            repeat: 2 0.9; 
+            normalMap: #kidRoomNRM; 
+            normalTextureRepeat: 2 0.9" scale="15 5 0.5" position="-8.495 1 17" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #kidRoom; repeat: 2 0.9; 
+        normalMap: #kidRoomNRM; 
+        normalTextureRepeat: 2 0.9" scale="15 5 0.5" position="8.495 1 17" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #kidRoom; 
+        repeat: 3.4 0.28; 
+        normalMap: #kidRoomNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="32 1.5 0.5" position="0 4.25 17" geometry="">
+
+        </a-box>
+
+        <a-box id="portaAvancar" material="color: #ffffff; src: #ground; repeat: 0.5 0.7; normalMap: #groundNRM"
+            scale="2 3.5 0.5" rotation="" position="0 1.75 17" sound="src: #door4open; volume: 5" play>
+
+            <a-image material="color: #ffffff; src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.3 0.2 0.2"
+                geometry="">
+            </a-image>
+
         </a-box>
 
         <!-------------------------CHÃO-------------------------------->

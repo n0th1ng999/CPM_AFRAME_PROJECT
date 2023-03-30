@@ -43,6 +43,8 @@ let grabbableToysArray = [toyCube, toyCube2];
 //STARTING DOOR
 let startingDoor = document.querySelector("#portaInicial");
 
+let door1 = document.querySelector("#portaAvancar");
+
 // Test to remove items from the inventory
 deleteInventory = () => {
   // Clear the inventory array and update the inventory display
@@ -90,11 +92,8 @@ loop = () => {
           toyRecipient.components.sound.playSound();
 
           if (completed.length == grabbableToysArray.length) {
-            console.log("level completed!");
-            // APOS COMPLETAR O NIVEL PASSADOS 1.5s O INVENTÁRIO É APAGADO PARA JÁ POSTERIORMENTE A FUNÇÃO SERÁ CHAMADA AO ABRIR A PORTA PARA A PROXIMA SALA
-            setTimeout(() => {
-              deleteInventory();
-            }, 1500);
+            const successAudio = new Audio("Sounds/Success.mp3");
+            successAudio.play();
           }
         }
       }
@@ -105,6 +104,22 @@ loop = () => {
 
 portaInicial.addEventListener("click", () => {
   portaInicial.components.sound.playSound();
+});
+
+portaAvancar.addEventListener("click", () => {
+  if (completed.length == grabbableToysArray.length) {
+    portaAvancar.components.sound.playSound();
+    portaAvancar.setAttribute("rotation", "0 90 0");
+    portaAvancar.setAttribute("position", "0.750 1.75 17.764");
+
+    setTimeout(() => {
+      deleteInventory();
+    }, 1500);
+  } else {
+    const errorAudio = new Audio("Sounds/Error.mp3");
+    errorAudio.play();
+    console.log("time got removed");
+  }
 });
 
 isColliding = (obj1, obj2) => {
