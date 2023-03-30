@@ -6,7 +6,7 @@ let camera = document.querySelector("a-camera");
  * They need to be put in an array and looped through for the moving logic
  */
 class grabbableObject {
-  constructor(domElement, inventory, target = null, id) {
+  constructor(domElement, target = null) {
     this.domElement = document.querySelector(domElement);
 
     this.grabState = false;
@@ -24,30 +24,8 @@ class grabbableObject {
     this.domElement.addEventListener("mouseup", () => {
       this.grabState = false;
     });
-
-    // create a separate inventory array for each object
-    this.inventory = inventory;
-
-    this.inventoryEl = document.querySelector("#inventory");
-
-    this.id = id;
-
-    this.domElement.addEventListener("click", () => {
-      if (!this.deposited) {
-        if (!this.inventory.includes(this.domElement.id)) {
-          this.inventory.push(this.domElement.id);
-          this.inventoryEl.textContent = `Inventory: ${this.inventory.join(
-            ", "
-          )}`;
-          console.log(this.inventory);
-        }
-      }
-    });
   }
 }
-
-// ITEMS THAT THE PLAYER HAS IN HIS INVENTORY
-let inventory = [];
 
 // LIST OF OBJECTS ADDED TO THE BOXES (IF THE TOTAL EQUALS THE AMOUNT NEEDED THAN YOU FINISH THE LEVEL)
 let completed = [];
@@ -55,9 +33,9 @@ let completed = [];
 //FIRST LEVEL OBJECTS
 let toyRecipient = document.querySelector("#toyRecipient");
 //TOYS  ---> Need to be created in html <---
-let toyCube = new grabbableObject("#toyCube", inventory);
+let toyCube = new grabbableObject("#toyCube");
 
-let toyCube2 = new grabbableObject("#toyCube2", inventory);
+let toyCube2 = new grabbableObject("#toyCube2");
 
 //TOYS ARRAY
 let grabbableToysArray = [toyCube, toyCube2];
@@ -66,7 +44,7 @@ let grabbableToysArray = [toyCube, toyCube2];
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     // Clear the inventory array and update the inventory display
-    inventory = [];
+    completed = [];
     document.querySelector("#inventory").textContent = "Inventory: Empty";
   }
 });
@@ -99,10 +77,13 @@ loop = () => {
 
         //If it collides with the recipient it will enter a state where it can not move no more
         if (isColliding(obj.domElement, toyRecipient)) {
+          let inventory = document.querySelector("#inventory");
           obj.deposited = true;
           obj.domElement.setAttribute("position", { x: 0, y: 100, z: 0 });
           obj.domElement.setAttribute("rotation", { x: 0, y: 0, z: 0 });
           completed.push(obj.domElement.id);
+          inventory.textContent = `Inventory: ${completed.join(", ")}`;
+          console.log(inventory);
           if (completed.length == grabbableToysArray.length) {
             console.log("level completed!");
           }
