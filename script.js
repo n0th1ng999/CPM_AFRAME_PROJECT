@@ -41,13 +41,11 @@ let toyCube2 = new grabbableObject("#toyCube2");
 let grabbableToysArray = [toyCube, toyCube2];
 
 // Test to remove items from the inventory
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    // Clear the inventory array and update the inventory display
-    completed = [];
-    document.querySelector("#inventory").textContent = "Inventory: Empty";
-  }
-});
+deleteInventory = () => {
+  // Clear the inventory array and update the inventory display
+  completed = [];
+  document.querySelector("#inventory").textContent = "Inventory: Empty";
+};
 
 //START
 window.onload = () => {
@@ -81,11 +79,19 @@ loop = () => {
           obj.deposited = true;
           obj.domElement.setAttribute("position", { x: 0, y: 100, z: 0 });
           obj.domElement.setAttribute("rotation", { x: 0, y: 0, z: 0 });
+
           completed.push(obj.domElement.id);
           inventory.textContent = `Inventory: ${completed.join(", ")}`;
-          console.log(inventory);
+
+          // PLAY SOUND IF OBJECT IS ADDED TO THE BOX
+          toyRecipient.components.sound.playSound();
+
           if (completed.length == grabbableToysArray.length) {
             console.log("level completed!");
+            // APOS COMPLETAR O NIVEL PASSADOS 1.5s O INVENTÁRIO É APAGADO PARA JÁ POSTERIORMENTE A FUNÇÃO SERÁ CHAMADA AO ABRIR A PORTA PARA A PROXIMA SALA
+            setTimeout(() => {
+              deleteInventory();
+            }, 1500);
           }
         }
       }

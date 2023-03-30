@@ -13,19 +13,51 @@
 <body>
     <a-scene>
 
+        <!-----------------------------------------------ASSETS------------------------------------------------------>
+        <a-assets>
+            <!---------------------IMAGES/TEXTURES--------------------->
+            <a-asset-item id="boxOBJ" src="/Textures/TreasureChest_1.1/untitled.obj"></a-asset-item>
+            <img id="box" src="/Textures/TreasureChest_1.1/Wood-Railing-Treatment.jpg">
+            <img id="boxNRM" src="/Textures/TreasureChest_1.1/Wood-Railing-Treatment_NORM.png">
+            <img id="toy1" src="/Textures/ToyBlue.jpg">
+            <img id="toy1NRM" src="/Textures/ToyBlueNormal.jpg">
+            <img id="toy2" src="/Textures/ToyRed.jpg">
+            <img id="toy2NRM" src="/Textures/ToyRedNormal.jpg">
+            <!------------------------SOUNDS--------------------------->
+            <audio id="happySong" src="./Sounds/Happy Town Theme - Ogg.ogg"></audio>
+            <audio id="wood" src="./Sounds/door2.mp3"></audio>
+        </a-assets>
+
         <a-camera>
             <a-cursor geometry="primitive: ring" material="color: #FFC0CB;    shader: flat"></a-cursor>
         </a-camera>
 
-        <a-box color="blue" id="toyCube" position="3 1 0" width="2" height="2" depth="2"></a-box>
-        <a-box color="yellow" id="toyCube2" position="6 1 0" width="2" height="2" depth="2"></a-box>
-        <a-box color="red" id="toyRecipient" position="0 1 -15" width="2" height="2" depth="2">
+
+        <!------------------BRINQUEDOS----------------------->
+        <a-box color="blue" id="toyCube" position="3 1 0" width="2" height="2" depth="2"
+            material="color: #ffffff; src: #toy1; normal-map: #toy1NRM;">
+        </a-box>
+
+        <a-box color="yellow" id="toyCube2" position="6 1 0" width="2" height="2" depth="2"
+            material="color: #ffffff; src: #toy2; normal-map: #toy2NRM;">
+        </a-box>
+
+        <!-----------------CAIXA RECIPIENTE------------------>
+        <a-entity id="toyRecipient" obj-model="obj: #boxOBJ" material="color: #ffffff;
+                            src: #box;
+                            normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 180 0" position="1 0 -15"
+            shadow="cast: true" sound="src: #wood; volume: 5" play>
+        </a-entity>
+
 
         </a-box>
         <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="green"></a-plane>
         <a-sky color="#ECECEC"></a-sky>
 
-
+        <!--sounds-->
+        <a-entity id="happySong"
+            sound="src: #happySong; autoplay: true; loop: true; volume: 0.15; maxDistance: 10000; refDistance: 10000">
+        </a-entity>
     </a-scene>
     <div id="inventory">Inventory: Empty</div>
 </body>
