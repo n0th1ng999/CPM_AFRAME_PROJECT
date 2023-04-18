@@ -1,5 +1,9 @@
 //CAMERA
 let camera = document.querySelector("a-camera");
+const tutorialWall = document.querySelector("#tutorialWall");
+const tutorialMsgInicial = document.querySelector("#tutorialInicial");
+const tutorialMsgMiddle = document.querySelector("#tutorialMiddle");
+const tutorialMsgFinal = document.querySelector("#tutorialFinal");
 
 /**
  * @class Grabbable objects inherit this class.
@@ -128,3 +132,38 @@ isColliding = (obj1, obj2) => {
 
   return bbox1.intersectsBox(bbox2);
 };
+
+// CROUCH WHEN PRESSINT CTRL
+
+let isCrouching = false;
+
+document.addEventListener("keydown", (event) => {
+  if (event.code === "ShiftLeft") {
+    isCrouching = true;
+    camera.setAttribute("position", {
+      x: camera.getAttribute("position").x,
+      y: 1,
+      z: camera.getAttribute("position").z,
+    });
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  if (event.code === "ShiftLeft") {
+    isCrouching = false;
+    camera.setAttribute("position", {
+      x: camera.getAttribute("position").x,
+      y: 3,
+      z: camera.getAttribute("position").z,
+    });
+  }
+});
+
+tutorialWall.addEventListener("mouseenter", showTutorialMsg);
+
+function showTutorialMsg() {
+  console.log(tutorialMsgInicial);
+  // tutorialMsgInicial.setAttribute();
+  // tutorialMsgMiddle.setAttribute();
+  // tutorialMsgFinal.setAttribute();
+}

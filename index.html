@@ -29,24 +29,28 @@
             <img id="inicialWall" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_ao.jpg">
             <img id="inicialWallNRM" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_normal.jpg">
             <img id="doorKnob" src="/Textures/Door-Handle-PNG-Image.png">
-            <img id="ground" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_albedo.jpg">
-            <img id="groundNRM" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_normal.jpg">
+            <img id="wood" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_albedo.jpg">
+            <img id="woodNRM" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_normal.jpg">
             <img id="kidRoom" src="/Textures/ChildRoom.jpg">
             <img id="kidRoomNRM" src="/Textures/ChildRoomNormal.jpg">
+            <img id="tutorialInicial" src="/Textures/msgInicial.png">
+            <img id="tutorialMiddle" src="/Textures/msgMiddle.png">
+            <img id="tutorialFinal" src="/Textures/msgFinal.png">
             <!------------------------SOUNDS--------------------------->
             <audio id="happySong" src="./Sounds/Happy Town Theme - Ogg.ogg"></audio>
-            <audio id="wood" src="./Sounds/door2.mp3"></audio>
+            <audio id="woodSound" src="./Sounds/door2.mp3"></audio>
             <audio id="door4open" src="./Sounds/door4open.mp3"></audio>
         </a-assets>
 
-        <a-camera position="0 3 -20" rotation="0 180 0">
+        <a-camera position="0.5 3 -20" rotation="0 180 0">
             <a-cursor geometry="primitive: ring" material="color: #FFC0CB;shader: flat"></a-cursor>
         </a-camera>
 
 
         <!------------------BRINQUEDOS----------------------->
-        <a-box color="blue" id="toyCube" position="3 1 0" width="2" height="2" depth="2"
-            material="color: #ffffff; src: #toy1; normal-map: #toy1NRM;">
+
+        <a-box color="blue" id="toyCube" position="13.36768 0.2 0.73871" width="2" height="2" depth="2"
+            material="color: #ffffff; src: #toy1; normalMap: #toy1NRM" geometry="" rotation="" scale="0.1 0.1 0.1">
         </a-box>
 
         <a-box color="yellow" id="toyCube2" position="6 1 0" width="2" height="2" depth="2"
@@ -57,7 +61,7 @@
         <a-entity id="toyRecipient" obj-model="obj: #boxOBJ" material="color: #ffffff;
                             src: #box;
                             normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 0 0" position="7 0 15"
-            shadow="cast: true" sound="src: #wood; volume: 5" play>
+            shadow="cast: true" sound="src: #woodSound; volume: 5" play>
         </a-entity>
 
         <!-------------------DIVISÃO iNICIAL---------------------->
@@ -100,17 +104,24 @@
             normal-texture-repeat: 1 0.9" scale="10 5 0.5" position="-8.245 2.5 -19.750" rotation="0 90 0">
         </a-box>
 
-        <a-box material="color: #ffffff;
+        <a-box id="tutorialWall" material="color: #ffffff;
             src: #inicialWall;
             repeat: 2 0.9;
             normal-map: #inicialWallNRM;
             normal-texture-repeat: 2 0.9" scale="17 5 0.5" position="0 2.5 -25">
         </a-box>
 
+        <a-image id="tutorialInicial" src="#tutorialInicial" position="0.6 4.3 -24.74"></a-image>
+        <a-image id="tutorialMiddle" src="#tutorialMiddle" position="-1.32405 2.53787 -24.74" width="2" height="2">
+        </a-image>
+        <a-image id="tutorialFinal" src="#tutorialFinal" position="2.33666 2.73799 -24.74" width="2" height="2">
+        </a-image>
+
+
         <a-box id="portaInicial" material="color: #ffffff;
-                          src: #inicialWall;
+                          src: #wood;
                           repeat: 0.5 0.7;
-                          normal-map: #inicialWallNRM" scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 -15"
+                          normal-map: #woodNRM" scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 -15"
             sound="src: #door4open; volume: 5" play
             event-set__DoorOpen="_event: click; _target: #portaInicial; rotation: 0 90 0; position: 0.750 1.75 -14.265">
 
@@ -181,7 +192,89 @@
 
         </a-box>
 
-        <a-box id="portaAvancar" material="color: #ffffff; src: #ground; repeat: 0.5 0.7; normalMap: #groundNRM"
+
+
+        <!---------------------PRIMEIRO QUARTO MOBILIA--------------------------->
+
+        <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: 3.4 0.28; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="14.9685 1 -1.85777" geometry="">
+
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: 3.4 0.28; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="14.969 1 3.38929" geometry="">
+
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; repeat: 3.4 0.28; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="11 1 3.38929" geometry="">
+
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: 3.4 0.28; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="11 1 -1.858" geometry="">
+
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: 3.4 0.28; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="5 0.5 7" position="13.09593 2.29322 0.67125" geometry="">
+
+        </a-box>
+        <!------------------TABLE TOP------------>
+        <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: 0.5 0.69; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 0.5 0.69" scale="5 0.01 7" position="13.096 2.55 0.671" geometry="">
+
+        </a-box>
+
+        <!------------------TABLE LEGS------------>
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.75358 1 -1.858" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.00066 1 -2.10472" geometry=""
+            rotation="0 90 0">
+
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.99589 1 -1.612" rotation="0 90 0" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.24531 1 -1.858">
+        </a-box>
+
+        <a-box id="portaAvancar" material="color: #ffffff; src: #wood; repeat: 0.5 0.7; normalMap: #woodNRM"
             scale="2 3.5 0.5" rotation="" position="0 1.75 17" sound="src: #door4open; volume: 5" play>
 
             <a-image material="color: #ffffff; src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.3 0.2 0.2"
@@ -190,9 +283,103 @@
 
         </a-box>
 
+
+
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.996 1 3.63643" rotation="0 90 0">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.996 1 3.1429" rotation="0 90 0" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.74591 1 3.38742" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.25068 1 3.387" geometry="">
+        </a-box>
+
+
+
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.71323 1 -1.858" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="15.21541 1 -1.858" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.9695 1 -1.612" rotation="0 90 0" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.9695 1 -2.10546" rotation="0 90 0"
+            geometry="">
+        </a-box>
+
+
+
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="15.21669 1 3.387" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.72275 1 3.387" geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodNRM; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.96775 1 3.63643" rotation="0 90 0"
+            geometry="">
+        </a-box>
+
+        <a-box material="color: #ffffff; 
+        src: #wood; 
+        repeat: -0.07 1.04; 
+        normalMap: #woodN; 
+        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.96775 1 3.1312" rotation="0 90 0" geometry="">
+        </a-box>
         <!-------------------------CHÃO-------------------------------->
         <a-plane position="0 0 0" rotation="-90 0 0" width="500" height="500" color="green"
-            material="color: #ffffff; src: #ground; normal-map: #groundNRM; repeat: 10 10; normal-texture-repeat: 10 10"></a-plane>
+            material="color: #ffffff; src: #wood; normal-map: #woodNRM; repeat: 10 10; normal-texture-repeat: 10 10"></a-plane>
         <a-sky color=" #ECECEC"></a-sky>
 
         <!--sounds-->
