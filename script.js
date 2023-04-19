@@ -41,8 +41,23 @@ let toyCube = new grabbableObject("#toyCube");
 
 let toyCube2 = new grabbableObject("#toyCube2");
 
+let toyCube3 = new grabbableObject("#toyCube3");
+
+let toycube4 = new grabbableObject("#toyCube4");
+
+let toyCube5 = new grabbableObject("#toyCube5");
+
+let toyCube6 = new grabbableObject("#toyCube6");
+
 //TOYS ARRAY
-let grabbableToysArray = [toyCube, toyCube2];
+let grabbableToysArray = [
+  toyCube,
+  toyCube2,
+  toyCube3,
+  toycube4,
+  toyCube5,
+  toyCube6,
+];
 
 //STARTING DOOR
 let startingDoor = document.querySelector("#portaInicial");
