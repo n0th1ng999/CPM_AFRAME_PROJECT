@@ -76,6 +76,10 @@ let room1Song = document.querySelector("#happySongPlay");
 
 let room2Song = document.querySelector("#horrorSongPlay");
 
+let wolf = document.querySelector("#wolf");
+
+let cricket = document.querySelector("#cricket");
+
 // Test to remove items from the inventory
 deleteInventory = () => {
   // Clear the inventory array and update the inventory display
@@ -237,6 +241,8 @@ portaAvancar.addEventListener("click", () => {
     portaAvancar.setAttribute("position", "0.750 1.75 17.764");
     room1Song.components.sound.pause();
     room2Song.components.sound.playSound();
+    wolf.components.sound.playSound();
+    cricket.components.sound.playSound();
 
     setTimeout(() => {
       deleteInventory();

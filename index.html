@@ -59,7 +59,7 @@
             <a-cursor geometry="primitive: ring" material="color: #FFC0CB;shader: flat"></a-cursor>
         </a-camera>
 
-        <a-entity light="type: ambient; color: #CCC; intensity: 1"></a-entity>
+        <a-entity light="type: ambient; color: #CCC; intensity: 0.2"></a-entity>
 
         <!------------------BRINQUEDOS----------------------->
 
@@ -1283,6 +1283,14 @@
             sound="src: #horrorSong; autoplay: false; loop: true; volume: 0.25; maxDistance: 10000; refDistance: 10000">
         </a-entity>
 
+        <a-entity id="wolf"
+            sound="src: ./Sounds/wolf.mp3; autoplay: false; loop: true; maxDistance: 100; refDistance: 50"
+            position="150 0 120">
+        </a-entity>
+
+        <a-entity id="cricket"
+            sound="src: ./Sounds/cricket.mp3; autoplay: false; loop: true; maxDistance: 10000; ref:10000">
+        </a-entity>
 
     </a-scene>
     <div id="inventory">Inventory: Empty</div>
