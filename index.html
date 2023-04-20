@@ -44,7 +44,7 @@
             <audio id="door4open" src="./Sounds/door4open.mp3"></audio>
         </a-assets>
 
-        <a-camera position="0.5 3 -20" rotation="0 180 0">
+        <a-camera position="0.5 3 20" rotation="0 180 0">
             <a-cursor geometry="primitive: ring" material="color: #FFC0CB;shader: flat"></a-cursor>
         </a-camera>
 
@@ -622,48 +622,37 @@
         <a-sky color=" #ECECEC"></a-sky>
 
         <!---------------------------CHÃO SALA 2-------------------------->
+        <a-entity id="panels">
 
-        <a-plane position="26.459 0.2 27.2158" rotation="-90 0 0" color="green" width="20" height="20"></a-plane>
+        
+        <a-box item="item1" proximityLevel="Super Cold" position="25 0.2 30" rotation="0 180 0" color="green" width="20" height="20"></a-box>
+        
+        <a-box item="item1"  proximityLevel="Super Hot" position="61.11898 0.2 109.699" rotation="0 180 0" color="violet" width="16.5" height="145"></a-box>
+        
+        <a-box item="item2" proximityLevel="Super Cold" position="26.459 0.2 27.2158" rotation="0 180 0" color="green" width="20" height="20"></a-box>
+        
+        <a-box item="item2"  proximityLevel="Super Hot" position="61.11898 0.2 109.699" rotation="0 180 0" color="violet" width="16.5" height="145"></a-box>
+        
+        </a-entity>
+        
+        <a-entity id="ClickableItems">
 
-        <a-plane position="-26.50486 0.2 27.21803" rotation="-90 0 0" color="green" width="20" height="20"></a-plane>
+        <a-box id="item1" color="purple" position="20 0.2 20"></a-box>
+                
+        <a-box id="item2" color="purple" position="20 0.2 25"></a-box>
+        
+        </a-entity>
 
-        <a-plane position="-0.02835 0.2 27.22715" rotation="-90 0 0" color="yellow" width="20" height="20"
-            material="color: yellow" geometry="width: 33"></a-plane>
+        
 
-        <a-plane position="53.01567 0.2 27.22715" rotation="-90 0 0" color="yellow" width="33" height="20"></a-plane>
-
-        <a-plane position="-52.97398 0.2 27.22715" rotation="-90 0 0" color="yellow" width="33" height="20"></a-plane>
-
-        <a-plane position="-26.505 0.2 112.10875" rotation="-90 0 0" color="red" width="20" height="150"></a-plane>
-
-        <a-plane position="26.43817 0.2 112.16434" rotation="-90 0 0" color="red" width="20" height="150"></a-plane>
-
-        <a-plane position="-0.11767 0.2 105.89829" rotation="-90 0 0" color="purple" width="33" height="45"></a-plane>
-
-        <a-plane position="-0.02835 0.2 184.61539" rotation="-90 0 0" color="orange" width="33" height="5"></a-plane>
-
-        <a-plane position="-52.97398 0.2 184.4916" rotation="-90 0 0" color="blue" width="33" height="5"></a-plane>
-
-        <a-plane position="53.01567 0.2 184.60163" rotation="-90 0 0" color="grey" width="33" height="5"></a-plane>
-
-        <a-plane position="-0.118 0.2 155.16509" rotation="-90 0 0" color="black" width="33" height="54"></a-plane>
-
-        <a-plane position="-0.118 0.2 60.15902" rotation="-90 0 0" color="white" width="33" height="46.5"></a-plane>
-
-        <a-plane position="44.64881 0.2 109.79307" rotation="-90 0 0" color="pink" width="16.5" height="145"></a-plane>
-
-        <a-plane position="-44.81988 0.2 109.69926" rotation="-90 0 0" color="pink" width="16.5" height="145"></a-plane>
-
-        <a-plane position="-61.38354 0.2 109.699" rotation="-90 0 0" color="violet" width="16.5" height="145"></a-plane>
-
-        <a-plane position="61.11898 0.2 109.699" rotation="-90 0 0" color="violet" width="16.5" height="145"></a-plane>
-
+        </a-box>
         <!--sounds-->
         <a-entity id="happySong"
             sound="src: #happySong; autoplay: true; loop: true; volume: 0.15; maxDistance: 10000; refDistance: 10000">
         </a-entity>
     </a-scene>
     <div id="inventory">Inventory: Empty</div>
+    <div id="HotColdMeter"></div>
 </body>
 <script src="script.js"></script>
 

@@ -1,9 +1,15 @@
 //CAMERA
 let camera = document.querySelector("a-camera");
+
 const tutorialWall = document.querySelector("#tutorialWall");
 const tutorialMsgInicial = document.querySelector("#tutorialInicial");
 const tutorialMsgMiddle = document.querySelector("#tutorialMiddle");
 const tutorialMsgFinal = document.querySelector("#tutorialFinal");
+
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//LVL1
 
 /**
  * @class Grabbable objects inherit this class.
@@ -71,13 +77,8 @@ deleteInventory = () => {
   document.querySelector("#inventory").textContent = "Inventory: Empty";
 };
 
-//START
-window.onload = () => {
-  loop();
-};
 
-//GAME LOGIC
-loop = () => {
+const Room1 = () => {
   //TOYS LOGIC (GRABBING AND MOVING)
   grabbableToysArray.forEach((obj) => {
     if (!obj.deposited)
@@ -90,9 +91,9 @@ loop = () => {
         let cameraRot = camera.getAttribute("rotation");
 
         // Calculate the position of the object in front of the camera
-        let x = cameraPos.x - Math.sin((cameraRot.y / 180) * Math.PI) * 5;
+        let x = cameraPos.x - Math.sin((cameraRot.y / 180) * Math.PI) * 3;
         let y = 1;
-        let z = cameraPos.z - Math.cos((cameraRot.y / 180) * Math.PI) * 5;
+        let z = cameraPos.z - Math.cos((cameraRot.y / 180) * Math.PI) * 3;
 
         obj.domElement.setAttribute("position", { x: x, y: y, z: z });
         obj.domElement.setAttribute("rotation", { x: 0, y: cameraRot.y, z: 0 });
@@ -117,6 +118,105 @@ loop = () => {
         }
       }
   });
+}
+
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//LVL2
+
+class ClickableObject {
+  constructor(domElement) {
+    this.domElement = domElement;
+
+    this.itemName = this.domElement.id;
+
+    this.clicked = false;
+
+    this.domElement.addEventListener('click', () => {
+      if(!this.clicked){
+        domElement.setAttribute('position', '0 -100 0')
+        this.clicked = true
+        currentCatchedItems++
+        if(maxItems - currentCatchedItems != 0){
+          HotColdMeter.textContent = 'Good! Items missing:' + String(maxItems - currentCatchedItems)
+        }else{
+          HotColdMeter.textContent = 'Well done! Every item was found'
+        }
+      }
+    })
+  }
+}
+
+class ProximityPanel {
+  constructor(domElement) {
+    this.domElement = domElement
+
+    this.proximityLevel = this.domElement.getAttribute('proximityLevel')
+
+    this.item = this.domElement.getAttribute('item')
+  }
+}
+
+
+//-----ITEMS INITIALIZATION---------
+let ClickableItems =[...document.querySelector('#ClickableItems').children]
+
+let ClickableItemsArray = []
+ClickableItems.forEach(item => {
+  ClickableItemsArray.push(new ClickableObject(item))
+})
+
+//-----PANELS INITIALIZATION---------
+let Panels =[...document.querySelector('#panels').children]
+
+let ProximityPanelsArray = [];
+
+Panels.forEach(panel => {
+  ProximityPanelsArray.push(new ProximityPanel(panel))
+})
+
+//---End Condition Variables--
+const maxItems = ClickableItemsArray.length
+let currentCatchedItems = 0
+
+//Indicator
+const HotColdMeter = document.querySelector('#HotColdMeter')
+
+let Room2 = () => {
+  
+  ClickableItemsArray.forEach(Item => {
+    ProximityPanelsArray.forEach(Panel => {
+      
+      if(!Item.clicked && Panel.item == Item.itemName){
+        if(isColliding(Panel.domElement,camera)){
+            HotColdMeter.textContent = Panel.proximityLevel
+        }
+      }})
+    })
+    
+    //End condition
+    if(maxItems == currentCatchedItems){
+      
+    }
+  }
+  
+  
+
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+
+//START
+window.onload = () => {
+  loop();
+};
+
+//GAME LOGIC
+loop = () => {
+  Room1()
+
+  Room2()
 
   window.requestAnimationFrame(loop);
 };
@@ -141,7 +241,7 @@ portaAvancar.addEventListener("click", () => {
   }
 });
 
-isColliding = (obj1, obj2) => {
+const isColliding = (obj1, obj2) => {
   let bbox1 = new THREE.Box3().setFromObject(obj1.object3D);
   let bbox2 = new THREE.Box3().setFromObject(obj2.object3D);
 
