@@ -44,6 +44,7 @@
             <img id="stoneWallNRM" src="/Textures/TexturesCom_Wall_Stone3_2x2_1K_normal.jpg">
             <img id="lampPostMetal" src="/Textures/TexturesCom_Metal_BronzePatina_1K_albedo.jpg">
             <img id="lampPostMetalNRM" src="/Textures/TexturesCom_Metal_BronzePatina_1K_normal.jpg">
+            <img id="nightSky" src="/Textures/Sky.png">
             <!------------------------SOUNDS--------------------------->
             <audio id="happySong" src="./Sounds/Happy Town Theme - Ogg.ogg"></audio>
             <audio id="woodSound" src="./Sounds/door2.mp3"></audio>
@@ -630,7 +631,10 @@
         <!-------------------------CHÃO-------------------------------->
         <a-plane position="0 0 -5.22353" rotation="-90 0 0" width="40" height="45" color="green"
             material="color: #ffffff; src: #wood; normal-map: #woodNRM; repeat: 10 10; normal-texture-repeat: 10 10"></a-plane>
-        <a-sky color=" #ECECEC"></a-sky>
+
+        <a-sky src="#nightSky" scale="25 5 25" radius="90" repeat="15 20">
+
+        </a-sky>
 
         <!---------------------------CHÃO SALA 2-------------------------->
 
