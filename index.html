@@ -38,17 +38,28 @@
             <img id="tutorialInicial" src="/Textures/msgInicial.png">
             <img id="tutorialMiddle" src="/Textures/msgMiddle.png">
             <img id="tutorialFinal" src="/Textures/msgFinal.png">
+            <img id="ground" src="/textures/TexturesCom_Ground_Forest_2x2_1K_albedo.jpg">
+            <img id="groundNRM" src="/textures/TexturesCom_Ground_Forest_2x2_1K_normal.jpg">
+            <img id="stoneWall" src="/Textures/TexturesCom_Wall_Stone3_2x2_1K_albedo.jpg">
+            <img id="stoneWallNRM" src="/Textures/TexturesCom_Wall_Stone3_2x2_1K_normal.jpg">
+            <img id="lampPostMetal" src="/Textures/TexturesCom_Metal_BronzePatina_1K_albedo.jpg">
+            <img id="lampPostMetalNRM" src="/Textures/TexturesCom_Metal_BronzePatina_1K_normal.jpg">
             <!------------------------SOUNDS--------------------------->
             <audio id="happySong" src="./Sounds/Happy Town Theme - Ogg.ogg"></audio>
             <audio id="woodSound" src="./Sounds/door2.mp3"></audio>
             <audio id="door4open" src="./Sounds/door4open.mp3"></audio>
+            <audio id="paper" src="./Sounds/Paper Ripping.mp3"></audio>
+            <audio id="horrorSong" src="./Sounds/horrorSong.mp3"></audio>
+            <audio id="wolfSound" src="./Sounds/wolf.mp3"></audio>
+            <audio id="cricket" src="./Sounds/cricket.mp3"></audio>
+            <audio id="creaking" src="./Sounds/creakingwood.mp3"></audio>
         </a-assets>
 
         <a-camera position="0.5 3 20" rotation="0 180 0">
             <a-cursor geometry="primitive: ring" material="color: #FFC0CB;shader: flat"></a-cursor>
         </a-camera>
 
-        <a-entity light="type: ambient; color: #CCC; intensity: 0.2"></a-entity>
+        <a-entity light="type: ambient; color: #CCC; intensity: 1"></a-entity>
 
         <!------------------BRINQUEDOS----------------------->
 
@@ -612,44 +623,667 @@
         <a-box material="color: #ffffff; 
         src: #wood; 
         repeat: -0.07 1.04; 
-        normalMap: #woodN; 
+        normalMap: #woodNRM; 
         normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.96775 1 3.1312" rotation="0 90 0" geometry="">
         </a-box>
 
         <!-------------------------CHÃO-------------------------------->
-        <a-plane position="0 0 0" rotation="-90 0 0" width="500" height="500" color="green"
+        <a-plane position="0 0 -5.22353" rotation="-90 0 0" width="40" height="45" color="green"
             material="color: #ffffff; src: #wood; normal-map: #woodNRM; repeat: 10 10; normal-texture-repeat: 10 10"></a-plane>
         <a-sky color=" #ECECEC"></a-sky>
 
         <!---------------------------CHÃO SALA 2-------------------------->
+
+        <a-plane position="0 0 167.24623" rotation="-90 0 0" scale="300 300 1"
+            material="color: #ffffff; src: #ground; normal-map: #groundNRM; repeat: 20 20; normalTextureRepeat: 20 20">
+        </a-plane>
+
+        <a-box material="color: #ffffff;
+                         src: #stoneWall;
+                         repeat: 30 2;
+                         normal-map: #stoneWallNRM;
+                         normal-texture-repeat: 30 2;" scale="134 10 1" position="-83.48951 5 16.763">
+        </a-box>
+
+        <a-box
+            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+            scale="134 10 1" position="83.442 5 16.773" geometry="">
+        </a-box>
+
+        <a-box
+            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+            scale="300 10 1" position="149.93603 5 167.30792" geometry="" rotation="0 90 0">
+        </a-box>
+
+        <a-box
+            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+            scale="300 10 1" position="-149.95245 5 167.30792" geometry="" rotation="0 90 0">
+        </a-box>
+
+        <a-box
+            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+            scale="148.5 10 1" position="75.2047 5 316.8293" geometry="" rotation="">
+        </a-box>
+
+        <a-box
+            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+            scale="148.5 10 1" position="-75.26121 5 316.8293" geometry="" rotation="">
+        </a-box>
+
+        <a-box
+            material="color: #ffffff; src: #stoneWall; repeat: 0.44 1.29; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2; offset: -0.03 -0.04"
+            scale="2 6.5 1" position="-0.034 6.748 316.829" geometry="" rotation="">
+        </a-box>
+        <!-------------------------------PORTA FINAL-------------------------------->
+        <a-box id="portaAvancar2" material="color: #ffffff; src: #wood; repeat: 0.5 0.7; normalMap: #woodNRM"
+            scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 316.98526" sound="src: #door4open; volume: 5" play
+            event-set__DoorOpen="_event: click; _target: #portaAvancar2; rotation: 0 90 0; position: 0.842 1.75 318.215">
+
+            <a-image material="color: #ffffff; src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.3 0.2 0.2">
+            </a-image>
+        </a-box>
+
+        <!-----------------------------------------------SALA 2 ARVORES E OBJETOS---------------------------------->
+        <a-entity position="11.23597 3 30.08456">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="68.53244 3 49.57875">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="68.53244 3 90.32571">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="68.53244 3 143.7997">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="25.77005 3 83.92435">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="109.30466 3 57.12265">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="108.27435 3 107.16372">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="108.87653 3 168.10082">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="54.30065 3 198.32361">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="91.37538 3 236.94398">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="127.39291 3 201.69795">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="56.70814 3 247.04724">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="116.33424 3 270.4111">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="133.49696 3 124.29314">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="73.09364 3 286.70198">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-72.84609 3 66.98373">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-123.19268 3 57.10121">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-42.54818 3 104.54248">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-90.15815 3 100.35793">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-125.04632 3 122.46561">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-74.24461 3 156.02848">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-35.38372 3 172.44302">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-116.74311 3 164.4959">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-79.02526 3 203.60063">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-119.01474 3 211.14761">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-43.93844 3 233.64886">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-115.43788 3 253.35937">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-76.69181 3 280.72567">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-entity position="-115.63562 3 291.98699">
+            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
+            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+        </a-entity>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="-4.55113 0.3 35" radius-top="0.2">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat">
+                <a-entity light="type: point; color:#ffed94;
+                intensity: 0.5;
+                distance: 30;
+                penumbra: 0.2;
+                castShadow: true;" position="0 0 0"></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="4.5 0.3 35" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="-4.551 0.3 95" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="4.551 0.3 95" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="-4.551 0.3 155" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="4.551 0.3 155" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="-4.551 0.3 185" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="4.551 0.3 185" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="-4.551 0.3 245" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="4.551 0.3 245" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="-4.551 0.3 305" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
+        <a-cone
+            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+            scale="0.7 0.7 0.7" position="4.551 0.3 305" radius-top="0.2" geometry="">
+            <a-cylinder
+                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+            </a-cylinder>
+            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                geometry="">
+                <a-entity
+                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                    position=""></a-entity>
+            </a-sphere>
+        </a-cone>
+
         <a-entity id="panels">
 
-        
-        <a-box item="item1" proximityLevel="Super Cold" position="25 0.2 30" rotation="0 180 0" color="green" width="20" height="20"></a-box>
-        
-        <a-box item="item1"  proximityLevel="Super Hot" position="61.11898 0.2 109.699" rotation="0 180 0" color="violet" width="16.5" height="145"></a-box>
-        
-        <a-box item="item2" proximityLevel="Super Cold" position="26.459 0.2 27.2158" rotation="0 180 0" color="green" width="20" height="20"></a-box>
-        
-        <a-box item="item2"  proximityLevel="Super Hot" position="61.11898 0.2 109.699" rotation="0 180 0" color="violet" width="16.5" height="145"></a-box>
-        
+            <a-box item="item1" proximitylevel="Super Cold" position="2.64054 0.2 170.1887" rotation="0 180 0"
+                color="green" scale="20 20 305" material="" geometry=""></a-box>
+
+            <a-box item="item2" proximitylevel="Super Cold" position="34.76646 0.2 25.94578" rotation="0 180 0"
+                color="green" scale="10 20 20"></a-box>
+
+            <a-box item="item3" proximitylevel="Super Cold" position="47.25642 0.2 32.02436" rotation="0 180 0"
+                color="green" scale="20 20 10"></a-box>
+
+            <a-box item="item4" proximitylevel="Super Cold" position="55.18949 0.2 26.18178" rotation="0 180 0"
+                color="green" scale="10 20 20"></a-box>
+
+            <a-box item="item5" proximitylevel="Super Cold" position="106.26106 0.2 87.04746" rotation="0 180 0"
+                color="green" scale="70 20 20"></a-box>
+
+            <a-box item="item6" proximitylevel="Super Cold" position="72.54124 0.2 128.13343" rotation="0 180 0"
+                color="green" scale="20 20 70"></a-box>
+
+            <a-box item="item7" proximitylevel="Super Cold" position="109.15396 0.2 159.84767" rotation="0 180 0"
+                color="green" scale="70 20 20"></a-box>
+
+            <a-box item="item8" proximitylevel="Super Cold" position="146.60876 0.2 123.52618" rotation="0 180 0"
+                color="green" scale="20 20 70"></a-box>
+
+            <a-box item="item9" proximitylevel="Super Cold" position="-62.29312 0.2 66.191" rotation="0 180 0"
+                color="green" scale="10 20 20"></a-box>
+
+
+            <a-box item="item10" proximitylevel="Super Cold" position="-83.23362 0.2 66.37903" rotation="0 180 0"
+                color="green" scale="10 20 20"></a-box>
+
+            <a-box item="item11" proximitylevel="Super Cold" position="-73.12679 0.2 76.8568" rotation="0 180 0"
+                color="green" scale="20 20 10"></a-box>
+
+            <a-box item="item12" proximitylevel="Super Cold" position="-72.25393 0.2 55.99987" rotation="0 180 0"
+                color="green" scale="20 20 10"></a-box>
+
+
+            <a-box item="item13" proximitylevel="Super Cold" position="23.2259 0.2 281.78684" rotation="0 180 0"
+                color="green" scale="30 20 20"></a-box>
+
+            <a-box item="item14" proximitylevel="Super Cold" position="43.23704 0.2 303.53279" rotation="0 180 0"
+                color="green" scale="20 20 30"></a-box>
+
+
+            <a-box item="item15" proximitylevel="Super Cold" position="-110.18103 0.2 214.26779" rotation="0 180 0"
+                color="green" scale="70 20 20"></a-box>
+
+
+            <a-box item="item16" proximitylevel="Super Cold" position="-111.17877 0.2 287.88484" rotation="0 180 0"
+                color="green" scale="70 20 20"></a-box>
+
+            <a-box item="item17" proximitylevel="Super Cold" position="-74.44036 0.2 245.29817" rotation="0 180 0"
+                color="green" scale="20 20 70"></a-box>
+
+            <a-box item="item18" proximitylevel="Super Cold" position="-146.47135 0.2 248.03179" rotation="0 180 0"
+                color="green" scale="20 20 70"></a-box>
+
+
+            <a-box item="item1" proximitylevel="Super Hot" position="-72.98357 0.2 66.57751" rotation="0 180 0"
+                color="violet" scale="10 20 10" material="" geometry=""></a-box>
+
+            <a-box item="item2" proximitylevel="Super Hot" position="109.25654 0.2 123.27727" rotation="0 180 0"
+                color="violet" scale="50 20 50"></a-box>
+
+            <a-box item="item3" proximitylevel="Super Hot" position="45.07489 0.2 21.4894" rotation="0 180 0"
+                color="violet" scale="10 20 10"></a-box>
+
+            <a-box item="item4" proximitylevel="Super Hot" position="23.66747 0.2 308.43525" rotation="0 180 0"
+                color="violet" scale="20 20 20"></a-box>
+
+            <a-box item="item2" proximitylevel="Super Hot" position="-110.1067 0.2 250.35153" rotation="0 180 0"
+                color="violet" scale="50 20 50"></a-box>
+
+
         </a-entity>
-        
+
         <a-entity id="ClickableItems">
 
-        <a-box id="item1" color="purple" position="20 0.2 20"></a-box>
-                
-        <a-box id="item2" color="purple" position="20 0.2 25"></a-box>
-        
+            <a-box id="item1" color="white" scale="0.1 0.7 0.4" position="-73.38509 3.03251 66.986"
+                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50"></a-box>
+
+            <a-box id="item2" color="white" scale="0.1 0.7 0.4" position="133.96596 0.33741 124.25844"
+                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50"></a-box>
+
+            <a-box id="item3" color="white" scale="0.1 0.7 0.4" position="91.27879 -0.00265 103.04186"
+                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 0 90"></a-box>
+
+            <a-box id="item4" color="white" scale="0.1 0.7 0.4" position="44.91291 1 17.28354"
+                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
+
+            <a-box id="item5" color="white" scale="0.1 0.7 0.4" position="20 1 316.2885"
+                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
+
+            <a-box id="item6" color="white" scale="0.1 0.7 0.4" position="-115.39005 1 252.88056"
+                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
+
+            <a-box id="item7" color="white" scale="0.1 0.7 0.4" position="-0.03856 3.94027 17.39034"
+                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 89 0"></a-box>
+
         </a-entity>
 
-        
+
 
         </a-box>
         <!--sounds-->
-        <a-entity id="happySong"
+        <a-entity id="happySongPlay"
             sound="src: #happySong; autoplay: true; loop: true; volume: 0.15; maxDistance: 10000; refDistance: 10000">
         </a-entity>
+
+        <a-entity id="horrorSongPlay"
+            sound="src: #horrorSong; autoplay: false; loop: true; volume: 0.25; maxDistance: 10000; refDistance: 10000">
+        </a-entity>
+
+
     </a-scene>
     <div id="inventory">Inventory: Empty</div>
     <div id="HotColdMeter"></div>

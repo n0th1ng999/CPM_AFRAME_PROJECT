@@ -70,13 +70,18 @@ let startingDoor = document.querySelector("#portaInicial");
 
 let door1 = document.querySelector("#portaAvancar");
 
+let doorFinal = document.querySelector("#portaAvancar2");
+
+let room1Song = document.querySelector("#happySongPlay");
+
+let room2Song = document.querySelector("#horrorSongPlay");
+
 // Test to remove items from the inventory
 deleteInventory = () => {
   // Clear the inventory array and update the inventory display
   completed = [];
   document.querySelector("#inventory").textContent = "Inventory: Empty";
 };
-
 
 const Room1 = () => {
   //TOYS LOGIC (GRABBING AND MOVING)
@@ -118,7 +123,7 @@ const Room1 = () => {
         }
       }
   });
-}
+};
 
 //-----------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------
@@ -133,75 +138,75 @@ class ClickableObject {
 
     this.clicked = false;
 
-    this.domElement.addEventListener('click', () => {
-      if(!this.clicked){
-        domElement.setAttribute('position', '0 -100 0')
-        this.clicked = true
-        currentCatchedItems++
-        if(maxItems - currentCatchedItems != 0){
-          HotColdMeter.textContent = 'Good! Items missing:' + String(maxItems - currentCatchedItems)
-        }else{
-          HotColdMeter.textContent = 'Well done! Every item was found'
+    this.sound = this.domElement.getAttribute("sound");
+
+    this.domElement.addEventListener("click", () => {
+      if (!this.clicked) {
+        domElement.setAttribute("position", "0 -100 0");
+        this.clicked = true;
+        currentCatchedItems++;
+        console.log("sound attribute value:", this.sound);
+        this.domElement.components.sound.playSound();
+        if (maxItems - currentCatchedItems != 0) {
+          HotColdMeter.textContent =
+            "Good! Items missing:" + String(maxItems - currentCatchedItems);
+        } else {
+          HotColdMeter.textContent = "Well done! Every item was found";
         }
       }
-    })
+    });
   }
 }
 
 class ProximityPanel {
   constructor(domElement) {
-    this.domElement = domElement
+    this.domElement = domElement;
 
-    this.proximityLevel = this.domElement.getAttribute('proximityLevel')
+    this.proximityLevel = this.domElement.getAttribute("proximityLevel");
 
-    this.item = this.domElement.getAttribute('item')
+    this.item = this.domElement.getAttribute("item");
   }
 }
 
-
 //-----ITEMS INITIALIZATION---------
-let ClickableItems =[...document.querySelector('#ClickableItems').children]
+let ClickableItems = [...document.querySelector("#ClickableItems").children];
 
-let ClickableItemsArray = []
-ClickableItems.forEach(item => {
-  ClickableItemsArray.push(new ClickableObject(item))
-})
+let ClickableItemsArray = [];
+ClickableItems.forEach((item) => {
+  ClickableItemsArray.push(new ClickableObject(item));
+});
 
 //-----PANELS INITIALIZATION---------
-let Panels =[...document.querySelector('#panels').children]
+let Panels = [...document.querySelector("#panels").children];
 
 let ProximityPanelsArray = [];
 
-Panels.forEach(panel => {
-  ProximityPanelsArray.push(new ProximityPanel(panel))
-})
+Panels.forEach((panel) => {
+  ProximityPanelsArray.push(new ProximityPanel(panel));
+});
 
 //---End Condition Variables--
-const maxItems = ClickableItemsArray.length
-let currentCatchedItems = 0
+const maxItems = ClickableItemsArray.length;
+let currentCatchedItems = 0;
 
 //Indicator
-const HotColdMeter = document.querySelector('#HotColdMeter')
+const HotColdMeter = document.querySelector("#HotColdMeter");
 
 let Room2 = () => {
-  
-  ClickableItemsArray.forEach(Item => {
-    ProximityPanelsArray.forEach(Panel => {
-      
-      if(!Item.clicked && Panel.item == Item.itemName){
-        if(isColliding(Panel.domElement,camera)){
-            HotColdMeter.textContent = Panel.proximityLevel
+  ClickableItemsArray.forEach((Item) => {
+    ProximityPanelsArray.forEach((Panel) => {
+      if (!Item.clicked && Panel.item == Item.itemName) {
+        if (isColliding(Panel.domElement, camera)) {
+          HotColdMeter.textContent = Panel.proximityLevel;
         }
-      }})
-    })
-    
-    //End condition
-    if(maxItems == currentCatchedItems){
-      
-    }
+      }
+    });
+  });
+
+  //End condition
+  if (maxItems == currentCatchedItems) {
   }
-  
-  
+};
 
 //-----------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------
@@ -214,9 +219,9 @@ window.onload = () => {
 
 //GAME LOGIC
 loop = () => {
-  Room1()
+  Room1();
 
-  Room2()
+  Room2();
 
   window.requestAnimationFrame(loop);
 };
@@ -230,6 +235,8 @@ portaAvancar.addEventListener("click", () => {
     portaAvancar.components.sound.playSound();
     portaAvancar.setAttribute("rotation", "0 90 0");
     portaAvancar.setAttribute("position", "0.750 1.75 17.764");
+    room1Song.components.sound.pause();
+    room2Song.components.sound.playSound();
 
     setTimeout(() => {
       deleteInventory();
@@ -239,6 +246,10 @@ portaAvancar.addEventListener("click", () => {
     errorAudio.play();
     console.log("time got removed");
   }
+});
+
+portaAvancar2.addEventListener("click", () => {
+  portaAvancar2.components.sound.playSound();
 });
 
 const isColliding = (obj1, obj2) => {
