@@ -232,6 +232,7 @@ loop = () => {
 
 portaInicial.addEventListener("click", () => {
   portaInicial.components.sound.playSound();
+  room1Song.components.sound.playSound();
 });
 
 portaAvancar.addEventListener("click", () => {
@@ -299,3 +300,11 @@ function showTutorialMsg() {
   // tutorialMsgMiddle.setAttribute();
   // tutorialMsgFinal.setAttribute();
 }
+
+//Landing Page
+const playBtn = document.querySelector("#playBtn");
+const gameScene = document.getElementById("gameScene");
+
+playBtn.addEventListener("click", () => {
+  gameScene.style.display = "block";
+});

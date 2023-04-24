@@ -14,1289 +14,1341 @@
 </head>
 
 <body>
-    <a-scene light="defaultLightsEnabled: false">
 
-        <!-----------------------------------------------ASSETS------------------------------------------------------>
-        <a-assets>
-            <!---------------------IMAGES/TEXTURES--------------------->
-            <a-asset-item id="boxOBJ" src="/Textures/TreasureChest_1.1/untitled.obj"></a-asset-item>
-            <img id="box" src="/Textures/TreasureChest_1.1/Wood-Railing-Treatment.jpg">
-            <img id="boxNRM" src="/Textures/TreasureChest_1.1/Wood-Railing-Treatment_NORM.png">
-            <img id="toy1" src="/Textures/ToyBlue.jpg">
-            <img id="toy1NRM" src="/Textures/ToyBlueNormal.jpg">
-            <img id="toy2" src="/Textures/ToyRed.jpg">
-            <img id="toy2NRM" src="/Textures/ToyRedNormal.jpg">
-            <img id="toy3" src="/Textures/ToyGreen.jpg">
-            <img id="toy3NRM" src="/Textures/ToyGreenNormal.jpg">
-            <img id="inicialWall" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_ao.jpg">
-            <img id="inicialWallNRM" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_normal.jpg">
-            <img id="doorKnob" src="/Textures/Door-Handle-PNG-Image.png">
-            <img id="wood" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_albedo.jpg">
-            <img id="woodNRM" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_normal.jpg">
-            <img id="kidRoom" src="/Textures/ChildRoom.jpg">
-            <img id="kidRoomNRM" src="/Textures/ChildRoomNormal.jpg">
-            <img id="tutorialInicial" src="/Textures/msgInicial.png">
-            <img id="tutorialMiddle" src="/Textures/msgMiddle.png">
-            <img id="tutorialFinal" src="/Textures/msgFinal.png">
-            <img id="ground" src="/textures/TexturesCom_Ground_Forest_2x2_1K_albedo.jpg">
-            <img id="groundNRM" src="/textures/TexturesCom_Ground_Forest_2x2_1K_normal.jpg">
-            <img id="stoneWall" src="/Textures/TexturesCom_Wall_Stone3_2x2_1K_albedo.jpg">
-            <img id="stoneWallNRM" src="/Textures/TexturesCom_Wall_Stone3_2x2_1K_normal.jpg">
-            <img id="lampPostMetal" src="/Textures/TexturesCom_Metal_BronzePatina_1K_albedo.jpg">
-            <img id="lampPostMetalNRM" src="/Textures/TexturesCom_Metal_BronzePatina_1K_normal.jpg">
-            <img id="nightSky" src="/Textures/Sky.png">
-            <!------------------------SOUNDS--------------------------->
-            <audio id="happySong" src="./Sounds/Happy Town Theme - Ogg.ogg"></audio>
-            <audio id="woodSound" src="./Sounds/door2.mp3"></audio>
-            <audio id="door4open" src="./Sounds/door4open.mp3"></audio>
-            <audio id="paper" src="./Sounds/Paper Ripping.mp3"></audio>
-            <audio id="horrorSong" src="./Sounds/horrorSong.mp3"></audio>
-            <audio id="wolfSound" src="./Sounds/wolf.mp3"></audio>
-            <audio id="cricket" src="./Sounds/cricket.mp3"></audio>
-            <audio id="creaking" src="./Sounds/creakingwood.mp3"></audio>
-        </a-assets>
+    <div id="landingPage">
+        <h1>Hide and Seek</h1>
+        <button id="playBtn">
+            <h2>Play</h2>
+        </button>
+    </div>
 
-        <a-camera position="0.5 3 -20" rotation="0 180 0">
-            <a-cursor geometry="primitive: ring" material="color: #FFC0CB;shader: flat"></a-cursor>
-        </a-camera>
+    <div id="gameScene" style="display: none;">
+        <a-scene light="defaultLightsEnabled: false">
 
-        <a-entity light="type: ambient; color: #CCC; intensity: 0.2"></a-entity>
+            <!-----------------------------------------------ASSETS------------------------------------------------------>
+            <a-assets>
+                <!---------------------IMAGES/TEXTURES--------------------->
+                <a-asset-item id="boxOBJ" src="/Textures/TreasureChest_1.1/untitled.obj"></a-asset-item>
+                <img id="box" src="/Textures/TreasureChest_1.1/Wood-Railing-Treatment.jpg">
+                <img id="boxNRM" src="/Textures/TreasureChest_1.1/Wood-Railing-Treatment_NORM.png">
+                <img id="toy1" src="/Textures/ToyBlue.jpg">
+                <img id="toy1NRM" src="/Textures/ToyBlueNormal.jpg">
+                <img id="toy2" src="/Textures/ToyRed.jpg">
+                <img id="toy2NRM" src="/Textures/ToyRedNormal.jpg">
+                <img id="toy3" src="/Textures/ToyGreen.jpg">
+                <img id="toy3NRM" src="/Textures/ToyGreenNormal.jpg">
+                <img id="inicialWall" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_ao.jpg">
+                <img id="inicialWallNRM" src="/Textures/TexturesCom_Asphalt_Base10_2x2_1K_normal.jpg">
+                <img id="doorKnob" src="/Textures/Door-Handle-PNG-Image.png">
+                <img id="wood" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_albedo.jpg">
+                <img id="woodNRM" src="/Textures/TexturesCom_Wood_LogWall_Aged_1K_normal.jpg">
+                <img id="kidRoom" src="/Textures/ChildRoom.jpg">
+                <img id="kidRoomNRM" src="/Textures/ChildRoomNormal.jpg">
+                <img id="tutorialInicial" src="/Textures/msgInicial.png">
+                <img id="tutorialMiddle" src="/Textures/msgMiddle.png">
+                <img id="tutorialFinal" src="/Textures/msgFinal.png">
+                <img id="ground" src="/textures/TexturesCom_Ground_Forest_2x2_1K_albedo.jpg">
+                <img id="groundNRM" src="/textures/TexturesCom_Ground_Forest_2x2_1K_normal.jpg">
+                <img id="stoneWall" src="/Textures/TexturesCom_Wall_Stone3_2x2_1K_albedo.jpg">
+                <img id="stoneWallNRM" src="/Textures/TexturesCom_Wall_Stone3_2x2_1K_normal.jpg">
+                <img id="lampPostMetal" src="/Textures/TexturesCom_Metal_BronzePatina_1K_albedo.jpg">
+                <img id="lampPostMetalNRM" src="/Textures/TexturesCom_Metal_BronzePatina_1K_normal.jpg">
+                <img id="nightSky" src="/Textures/Sky.png">
+                <!------------------------SOUNDS--------------------------->
+                <audio id="happySong" src="./Sounds/Happy Town Theme - Ogg.ogg"></audio>
+                <audio id="woodSound" src="./Sounds/door2.mp3"></audio>
+                <audio id="door4open" src="./Sounds/door4open.mp3"></audio>
+                <audio id="paper" src="./Sounds/Paper Ripping.mp3"></audio>
+                <audio id="horrorSong" src="./Sounds/horrorSong.mp3"></audio>
+                <audio id="wolfSound" src="./Sounds/wolf.mp3"></audio>
+                <audio id="cricket" src="./Sounds/cricket.mp3"></audio>
+                <audio id="creaking" src="./Sounds/creakingwood.mp3"></audio>
+            </a-assets>
 
-        <!------------------BRINQUEDOS----------------------->
+            <a-camera position="0.5 3 -20" rotation="0 180 0">
+                <a-cursor geometry="primitive: ring" material="color: #FFC0CB;shader: flat"></a-cursor>
+            </a-camera>
 
-        <a-box color="blue" id="toyCube" position="15.12404 0.2 0.56176" width="2" height="2" depth="2"
-            material="color: #ffffff; src: #toy1; normalMap: #toy1NRM" scale="0.1 0.1 0.1">
-        </a-box>
+            <a-entity light="type: ambient; color: #CCC; intensity: 0.2"></a-entity>
 
-        <a-box color="red" id="toyCube2" position="-14.95434 0.1 3.3601" width="2" height="2" depth="2"
-            material="color: #ffffff; src: #toy2; normal-map: #toy2NRM;" scale="0.05 0.05 0.05">
-        </a-box>
+            <!------------------BRINQUEDOS----------------------->
 
-        <a-box color="green" id="toyCube3" position="-8 3 0" width="2" height="2" depth="2"
-            material="color: #ffffff; src: #toy3; normal-map: #toy3NRM;" scale="0.5 0.5 0.5">
-        </a-box>
+            <a-box color="blue" id="toyCube" position="15.12404 0.2 0.56176" width="2" height="2" depth="2"
+                material="color: #ffffff; src: #toy1; normalMap: #toy1NRM" scale="0.1 0.1 0.1">
+            </a-box>
 
-        <a-cone color="red" id="toyCube4" position="-14.94993 4.22552 -1.85203" width="2" height="2" depth="2"
-            material="color: #ffffff; src: #toy2; normalMap: #toy2NRM" scale="0.2 0.2 0.2">
-        </a-cone>
+            <a-box color="red" id="toyCube2" position="-14.95434 0.1 3.3601" width="2" height="2" depth="2"
+                material="color: #ffffff; src: #toy2; normal-map: #toy2NRM;" scale="0.05 0.05 0.05">
+            </a-box>
 
-        <a-sphere color="red" id="toyCube5" position="13.87151 2.76827 0.41384" width="2" height="2" depth="2"
-            material="color: #ffffff; src: #toy1; normalMap: #toy1NRM" scale="0.2 0.2 0.2">
-        </a-sphere>
+            <a-box color="green" id="toyCube3" position="-8 3 0" width="2" height="2" depth="2"
+                material="color: #ffffff; src: #toy3; normal-map: #toy3NRM;" scale="0.5 0.5 0.5">
+            </a-box>
 
-        <a-cylinder color="red" id="toyCube6" position="14.71514 1 -13.23525" width="2" height="2" depth="2"
-            material="color: #ffffff; src: #toy3; normalMap: #toy3NRM" scale="1 1 1">
-        </a-cylinder>
+            <a-cone color="red" id="toyCube4" position="-14.94993 4.22552 -1.85203" width="2" height="2" depth="2"
+                material="color: #ffffff; src: #toy2; normalMap: #toy2NRM" scale="0.2 0.2 0.2">
+            </a-cone>
 
-        <!-----------------CAIXA RECIPIENTE------------------>
-        <a-entity id="toyRecipient" obj-model="obj: #boxOBJ" material="color: #ffffff;
-                            src: #box;
-                            normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 0 0" position="7 0 15"
-            shadow="cast: true" sound="src: #woodSound; volume: 5" play>
-        </a-entity>
+            <a-sphere color="red" id="toyCube5" position="13.87151 2.76827 0.41384" width="2" height="2" depth="2"
+                material="color: #ffffff; src: #toy1; normalMap: #toy1NRM" scale="0.2 0.2 0.2">
+            </a-sphere>
 
-        <!-------------------DIVISÃO iNICIAL---------------------->
+            <a-cylinder color="red" id="toyCube6" position="14.71514 1 -13.23525" width="2" height="2" depth="2"
+                material="color: #ffffff; src: #toy3; normalMap: #toy3NRM" scale="1 1 1">
+            </a-cylinder>
 
-        <a-entity light="type: spot; color: #CCC; intensity: 0.8; decay: 0.7; distance: 12; angle: 90"
-            position="-0.5 5.24161 -20" rotation="-90 0 0"></a-entity>
+            <!-----------------CAIXA RECIPIENTE------------------>
+            <a-entity id="toyRecipient" obj-model="obj: #boxOBJ" material="color: #ffffff;
+                                src: #box;
+                                normal-map: #boxNRM" scale="0.5 0.5 0.5" rotation="0 0 0" position="7 0 15"
+                shadow="cast: true" sound="src: #woodSound; volume: 5" play>
+            </a-entity>
 
-        <a-box material=" color: #ffffff; src: #inicialWall; repeat: 1 0.9; normalMap: #inicialWallNRM;
-            normalTextureRepeat: 1 0.19" scale="17 10 0.5" position="-0.02298 5.32641 -19.99264" rotation="90 0 0">
+            <!-------------------DIVISÃO iNICIAL---------------------->
 
-        </a-box>
+            <a-entity light="type: spot; color: #CCC; intensity: 0.8; decay: 0.7; distance: 12; angle: 90"
+                position="-0.5 5.24161 -20" rotation="-90 0 0"></a-entity>
 
-        <a-box material="color: #ffffff;
-            src: #inicialWall;
-            repeat: 1 0.9;
-            normal-map: #inicialWallNRM;
-            normal-texture-repeat: 1 0.19" scale="7 5 0.5" position="-4.5 2.5 -15">
+            <a-box material=" color: #ffffff; src: #inicialWall; repeat: 1 0.9; normalMap: #inicialWallNRM;
+                normalTextureRepeat: 1 0.19" scale="17 10 0.5" position="-0.02298 5.32641 -19.99264" rotation="90 0 0">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff;
-            src: #inicialWall;
-            repeat: 1 0.9;
-            normal-map: #inicialWallNRM;
-            normal-texture-repeat: 1 0.19" scale="7 5 0.5" position="4.5 2.5 -15">
+            <a-box material="color: #ffffff;
+                src: #inicialWall;
+                repeat: 1 0.9;
+                normal-map: #inicialWallNRM;
+                normal-texture-repeat: 1 0.19" scale="7 5 0.5" position="-4.5 2.5 -15">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff;
-            src: #inicialWall;
-            repeat: 0.350 0.4;
-            normal-map: #inicialWallNRM;
-            normal-texture-repeat: 0.350 0.4" scale="2 1.5 0.5" position="0 4.250 -15">
+            <a-box material="color: #ffffff;
+                src: #inicialWall;
+                repeat: 1 0.9;
+                normal-map: #inicialWallNRM;
+                normal-texture-repeat: 1 0.19" scale="7 5 0.5" position="4.5 2.5 -15">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff;
-            src: #inicialWall;
-            repeat: 1 0.9;
-            normal-map: #inicialWallNRM;
-            normal-texture-repeat: 1 0.9" scale="10 5 0.5" position="8.245 2.5 -19.750" rotation="0 90 0">
-        </a-box>
+            <a-box material="color: #ffffff;
+                src: #inicialWall;
+                repeat: 0.350 0.4;
+                normal-map: #inicialWallNRM;
+                normal-texture-repeat: 0.350 0.4" scale="2 1.5 0.5" position="0 4.250 -15">
 
-        <a-box material="color: #ffffff;
-            src: #inicialWall;
-            repeat: 1 0.9;
-            normal-map: #inicialWallNRM;
-            normal-texture-repeat: 1 0.9" scale="10 5 0.5" position="-8.245 2.5 -19.750" rotation="0 90 0">
-        </a-box>
+            </a-box>
 
-        <a-box id="tutorialWall" material="color: #ffffff;
-            src: #inicialWall;
-            repeat: 2 0.9;
-            normal-map: #inicialWallNRM;
-            normal-texture-repeat: 2 0.9" scale="17 5 0.5" position="0 2.5 -25">
-        </a-box>
+            <a-box material="color: #ffffff;
+                src: #inicialWall;
+                repeat: 1 0.9;
+                normal-map: #inicialWallNRM;
+                normal-texture-repeat: 1 0.9" scale="10 5 0.5" position="8.245 2.5 -19.750" rotation="0 90 0">
+            </a-box>
 
-        <a-image id="tutorialInicial" src="#tutorialInicial" position="0.6 4.3 -24.74"></a-image>
-        <a-image id="tutorialMiddle" src="#tutorialMiddle" position="-1.32405 2.53787 -24.74" width="2" height="2">
-        </a-image>
-        <a-image id="tutorialFinal" src="#tutorialFinal" position="2.33666 2.73799 -24.74" width="2" height="2">
-        </a-image>
+            <a-box material="color: #ffffff;
+                src: #inicialWall;
+                repeat: 1 0.9;
+                normal-map: #inicialWallNRM;
+                normal-texture-repeat: 1 0.9" scale="10 5 0.5" position="-8.245 2.5 -19.750" rotation="0 90 0">
+            </a-box>
+
+            <a-box id="tutorialWall" material="color: #ffffff;
+                src: #inicialWall;
+                repeat: 2 0.9;
+                normal-map: #inicialWallNRM;
+                normal-texture-repeat: 2 0.9" scale="17 5 0.5" position="0 2.5 -25">
+            </a-box>
+
+            <a-image id="tutorialInicial" src="#tutorialInicial" position="0.6 4.3 -24.74"></a-image>
+            <a-image id="tutorialMiddle" src="#tutorialMiddle" position="-1.32405 2.53787 -24.74" width="2" height="2">
+            </a-image>
+            <a-image id="tutorialFinal" src="#tutorialFinal" position="2.33666 2.73799 -24.74" width="2" height="2">
+            </a-image>
 
 
-        <a-box id="portaInicial" material="color: #ffffff;
-                          src: #wood;
-                          repeat: 0.5 0.7;
-                          normal-map: #woodNRM" scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 -15"
-            sound="src: #door4open; volume: 5" play
-            event-set__DoorOpen="_event: click; _target: #portaInicial; rotation: 0 90 0; position: 0.750 1.75 -14.265">
+            <a-box id="portaInicial" material="color: #ffffff;
+                              src: #wood;
+                              repeat: 0.5 0.7;
+                              normal-map: #woodNRM" scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 -15"
+                sound="src: #door4open; volume: 5" play
+                event-set__DoorOpen="_event: click; _target: #portaInicial; rotation: 0 90 0; position: 0.750 1.75 -14.265">
 
-            <a-image material="color: #ffffff;
-                src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.300 0.200 0.200">
-            </a-Image>
+                <a-image material="color: #ffffff;
+                    src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.300 0.200 0.200">
+                </a-Image>
 
-        </a-box>
+            </a-box>
 
-        <!---------------------------PRIMEIRO QUARTO--------------------------------------->
+            <!---------------------------PRIMEIRO QUARTO--------------------------------------->
 
-        <a-box material="color: #ffffff; 
-        src: #kidRoom; 
-        repeat: 2.7 2.7; 
-        normalMap: #kidRoomNRM; 
-        normalTextureRepeat: 2.9 2.9" scale="33 32 0.5" position="-0.07053 8.69374 1.35762" rotation="90 0 0">
-        </a-box>
+            <a-box material="color: #ffffff; 
+            src: #kidRoom; 
+            repeat: 2.7 2.7; 
+            normalMap: #kidRoomNRM; 
+            normalTextureRepeat: 2.9 2.9" scale="33 32 0.5" position="-0.07053 8.69374 1.35762" rotation="90 0 0">
+            </a-box>
 
-        <a-box material="color: #ffffff;
-            src: #kidRoom;
-            repeat: 2 0.9;
-            normal-map: #kidRoomNRM;
-            normal-texture-repeat: 2 0.9" scale="15 5 0.5" position="-8.495 1 -14.490">
-        </a-box>
+            <a-box material="color: #ffffff;
+                src: #kidRoom;
+                repeat: 2 0.9;
+                normal-map: #kidRoomNRM;
+                normal-texture-repeat: 2 0.9" scale="15 5 0.5" position="-8.495 1 -14.490">
+            </a-box>
 
-        <a-box material="color: #ffffff; 
-        src: #kidRoom; 
-        repeat: 3.4 0.48;
-        offset: 0 -421.32
-        normalMap: #kidRoomNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="0 6.75 -14.49" geometry="">
-
-        </a-box>
-
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #kidRoom; 
             repeat: 3.4 0.48;
             offset: 0 -421.32
             normalMap: #kidRoomNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="0 6.75 17" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="0 6.75 -14.49" geometry="">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff; 
-        src: #kidRoom; 
-        repeat: 3.4 0.48;
-        offset: 0 -421.32 
-        normalMap: #kidRoomNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="16.25 6.75 1.265" geometry="" rotation="0 90 0">
+            <a-box material="color: #ffffff; 
+                src: #kidRoom; 
+                repeat: 3.4 0.48;
+                offset: 0 -421.32
+                normalMap: #kidRoomNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="0 6.75 17" geometry="">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #kidRoom; 
             repeat: 3.4 0.48;
-            offset: 0 -421.32
+            offset: 0 -421.32 
             normalMap: #kidRoomNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="-16.25 6.75 1.265" geometry=""
-            rotation="0 90 0">
+            normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="16.25 6.75 1.265" geometry=""
+                rotation="0 90 0">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff;
-            src: #kidRoom;
-            repeat: 2 0.9;
-            normal-map: #kidRoomNRM;
-            normal-texture-repeat: 2 0.9" scale="15 5 0.5" position="8.495 1 -14.490">
-        </a-box>
+            <a-box material="color: #ffffff; 
+                src: #kidRoom; 
+                repeat: 3.4 0.48;
+                offset: 0 -421.32
+                normalMap: #kidRoomNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="32 3.5 0.5" position="-16.25 6.75 1.265" geometry=""
+                rotation="0 90 0">
 
-        <a-box material="color: #ffffff;
-            src: #kidRoom;
-            repeat: 3.400 0.280;
-            normal-map: #kidRoomNRM;
-            normal-texture-repeat: 3.400 0.280" scale="32 1.5 0.5" position="0 4.250 -14.490">
+            </a-box>
 
-        </a-box>
+            <a-box material="color: #ffffff;
+                src: #kidRoom;
+                repeat: 2 0.9;
+                normal-map: #kidRoomNRM;
+                normal-texture-repeat: 2 0.9" scale="15 5 0.5" position="8.495 1 -14.490">
+            </a-box>
 
-        <a-box material="color: #ffffff;
-            src: #kidRoom;
-            repeat: 3.400 0.9;
-            normal-map: #kidRoomNRM;
-            normal-texture-repeat: 3.400 0.9" scale="32 5 0.5" position="-16.250 2.5 1.265" rotation="0 90 0">
+            <a-box material="color: #ffffff;
+                src: #kidRoom;
+                repeat: 3.400 0.280;
+                normal-map: #kidRoomNRM;
+                normal-texture-repeat: 3.400 0.280" scale="32 1.5 0.5" position="0 4.250 -14.490">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff;
-            src: #kidRoom;
-            repeat: 3.400 0.9;
-            normal-map: #kidRoomNRM;
-            normal-texture-repeat: 3.400 0.9" scale="32 5 0.5" position="16.250 2.5 1.265" rotation="0 90 0">
+            <a-box material="color: #ffffff;
+                src: #kidRoom;
+                repeat: 3.400 0.9;
+                normal-map: #kidRoomNRM;
+                normal-texture-repeat: 3.400 0.9" scale="32 5 0.5" position="-16.250 2.5 1.265" rotation="0 90 0">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff;
+                src: #kidRoom;
+                repeat: 3.400 0.9;
+                normal-map: #kidRoomNRM;
+                normal-texture-repeat: 3.400 0.9" scale="32 5 0.5" position="16.250 2.5 1.265" rotation="0 90 0">
+
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+                src: #kidRoom; 
+                repeat: 2 0.9; 
+                normalMap: #kidRoomNRM; 
+                normalTextureRepeat: 2 0.9" scale="15 5 0.5" position="-8.495 1 17" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #kidRoom; repeat: 2 0.9; 
+            normalMap: #kidRoomNRM; 
+            normalTextureRepeat: 2 0.9" scale="15 5 0.5" position="8.495 1 17" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
             src: #kidRoom; 
-            repeat: 2 0.9; 
+            repeat: 3.4 0.28; 
             normalMap: #kidRoomNRM; 
-            normalTextureRepeat: 2 0.9" scale="15 5 0.5" position="-8.495 1 17" geometry="">
-        </a-box>
+            normalTextureRepeat: 3.4 0.28" scale="32 1.5 0.5" position="0 4.25 17" geometry="">
 
-        <a-box material="color: #ffffff; 
-        src: #kidRoom; repeat: 2 0.9; 
-        normalMap: #kidRoomNRM; 
-        normalTextureRepeat: 2 0.9" scale="15 5 0.5" position="8.495 1 17" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #kidRoom; 
-        repeat: 3.4 0.28; 
-        normalMap: #kidRoomNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="32 1.5 0.5" position="0 4.25 17" geometry="">
-
-        </a-box>
+            </a-box>
 
 
 
-        <!---------------------PRIMEIRO QUARTO MOBILIA--------------------------->
+            <!---------------------PRIMEIRO QUARTO MOBILIA--------------------------->
 
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 3.4 0.28; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="14.9685 1 -1.85777" geometry="">
+
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 3.4 0.28; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="14.969 1 3.38929" geometry="">
+
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; repeat: 3.4 0.28; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="11 1 3.38929" geometry="">
+
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 3.4 0.28; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="11 1 -1.858" geometry="">
+
+            </a-box>
+
+            <a-box material="color: #ffffff; 
             src: #wood; 
             repeat: 3.4 0.28; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="14.9685 1 -1.85777" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="5 0.5 7" position="13.09593 2.29322 0.67125" geometry="">
 
-        </a-box>
+            </a-box>
+            <!------------------TABLE TOP------------>
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 0.5 0.69; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 0.5 0.69" scale="5 0.01 7" position="13.096 2.55 0.671" geometry="">
 
-        <a-box material="color: #ffffff; 
+            </a-box>
+
+            <!------------------TABLE LEGS------------>
+            <a-box material="color: #ffffff; 
             src: #wood; 
-            repeat: 3.4 0.28; 
+            repeat: -0.07 1.04; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="14.969 1 3.38929" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.75358 1 -1.858" geometry="">
+            </a-box>
 
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; repeat: 3.4 0.28; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="11 1 3.38929" geometry="">
-
-        </a-box>
-
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #wood; 
-            repeat: 3.4 0.28; 
+            repeat: -0.07 1.04; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="0.5 3 0.5" position="11 1 -1.858" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.00066 1 -2.10472" geometry=""
+                rotation="0 90 0">
 
-        </a-box>
+            </a-box>
 
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: 3.4 0.28; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="5 0.5 7" position="13.09593 2.29322 0.67125" geometry="">
-
-        </a-box>
-        <!------------------TABLE TOP------------>
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #wood; 
-            repeat: 0.5 0.69; 
+            repeat: -0.07 1.04; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 0.5 0.69" scale="5 0.01 7" position="13.096 2.55 0.671" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.99589 1 -1.612" rotation="0 90 0"
+                geometry="">
+            </a-box>
 
-        </a-box>
-
-        <!------------------TABLE LEGS------------>
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.75358 1 -1.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.00066 1 -2.10472" geometry=""
-            rotation="0 90 0">
-
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.99589 1 -1.612" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.24531 1 -1.858">
-        </a-box>
-
-        <!-------------------------CAMA---------------------------->
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #wood; 
-            repeat: 3.4 0.28; 
+            repeat: -0.07 1.04; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="0.5 4 0.5" position="-14.969 2.00576 -1.858" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.24531 1 -1.858">
+            </a-box>
 
-        </a-box>
+            <!-------------------------CAMA---------------------------->
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 3.4 0.28; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="0.5 4 0.5" position="-14.969 2.00576 -1.858" geometry="">
 
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.71323 2 -1.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-15.21541 2 -1.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 -1.612" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 -2.10546" rotation="0 90 0" geometry="">
-        </a-box>
+            </a-box>
 
 
-
-
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #wood; 
-            repeat: 3.4 0.28; 
+            repeat: -0.07 1.04; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="0.5 4 0.5" position="-14.969 2.00576 3.858" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.71323 2 -1.858" geometry="">
+            </a-box>
 
-        </a-box>
-
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.71323 2 3.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-15.21541 2 3.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 3.612" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 4.10546" rotation="0 90 0" geometry="">
-        </a-box>
-
-
-
-
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #wood; 
-            repeat: 3.4 0.28; 
+            repeat: -0.07 1.04; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="0.5 2 0.5" position="-3.969 1 3.858" geometry="">
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-15.21541 2 -1.858" geometry="">
+            </a-box>
 
-        </a-box>
-
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.71323 1 3.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-4.21541 1 3.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 3.612" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 4.10546" rotation="0 90 0" geometry="">
-        </a-box>
-
-
-
-        <a-box material="color: #ffffff; 
+            <a-box material="color: #ffffff; 
             src: #wood; 
-            repeat: 3.4 0.28; 
+            repeat: -0.07 1.04; 
             normalMap: #woodNRM; 
-            normalTextureRepeat: 3.4 0.28" scale="0.5 2 0.5" position="-3.969 1 -1.858" geometry="">
-
-        </a-box>
-
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.71323 1 -1.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-4.21541 1 -1.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 -1.612" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 -2.10546" rotation="0 90 0" geometry="">
-        </a-box>
-
-
-
-        <a-box material="color: #ffffff; 
-        src: #toy1; 
-        repeat: -0.07 1.04; 
-        normalMap: #toy1NRM; 
-        normalTextureRepeat: 3.4 0.28" scale="11 0.5 6.2" position="-9.21573 2.25518 0.99465" geometry="">
-        </a-box>
-
-        <!-----------------------PORTA NIVEL 2-------------------------------->
-        <a-box id="portaAvancar" material="color: #ffffff; src: #wood; repeat: 0.5 0.7; normalMap: #woodNRM"
-            scale="2 3.5 0.5" rotation="" position="0 1.75 17" sound="src: #door4open; volume: 5" play>
-
-            <a-image material="color: #ffffff; src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.3 0.2 0.2"
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 -1.612" rotation="0 90 0"
                 geometry="">
-            </a-image>
-
-        </a-box>
-
-
-
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.996 1 3.63643" rotation="0 90 0">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.996 1 3.1429" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.74591 1 3.38742" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.25068 1 3.387" geometry="">
-        </a-box>
-
-
-
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.71323 1 -1.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="15.21541 1 -1.858" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.9695 1 -1.612" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.9695 1 -2.10546" rotation="0 90 0"
-            geometry="">
-        </a-box>
-
-
-
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="15.21669 1 3.387" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.72275 1 3.387" geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.96775 1 3.63643" rotation="0 90 0"
-            geometry="">
-        </a-box>
-
-        <a-box material="color: #ffffff; 
-        src: #wood; 
-        repeat: -0.07 1.04; 
-        normalMap: #woodNRM; 
-        normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.96775 1 3.1312" rotation="0 90 0" geometry="">
-        </a-box>
-
-        <!-------------------------CHÃO-------------------------------->
-        <a-plane position="0 0 -5.22353" rotation="-90 0 0" width="40" height="45" color="green"
-            material="color: #ffffff; src: #wood; normal-map: #woodNRM; repeat: 10 10; normal-texture-repeat: 10 10"></a-plane>
-
-        <a-sky src="#nightSky" scale="25 5 25" radius="90" repeat="15 20">
-
-        </a-sky>
-
-        <!---------------------------CHÃO SALA 2-------------------------->
-
-        <a-plane position="0 0 167.24623" rotation="-90 0 0" scale="300 300 1"
-            material="color: #ffffff; src: #ground; normal-map: #groundNRM; repeat: 20 20; normalTextureRepeat: 20 20">
-        </a-plane>
-
-        <a-box material="color: #ffffff;
-                         src: #stoneWall;
-                         repeat: 30 2;
-                         normal-map: #stoneWallNRM;
-                         normal-texture-repeat: 30 2;" scale="134 10 1" position="-83.48951 5 16.763">
-        </a-box>
-
-        <a-box
-            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
-            scale="134 10 1" position="83.442 5 16.773" geometry="">
-        </a-box>
-
-        <a-box
-            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
-            scale="300 10 1" position="149.93603 5 167.30792" geometry="" rotation="0 90 0">
-        </a-box>
-
-        <a-box
-            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
-            scale="300 10 1" position="-149.95245 5 167.30792" geometry="" rotation="0 90 0">
-        </a-box>
-
-        <a-box
-            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
-            scale="148.5 10 1" position="75.2047 5 316.8293" geometry="" rotation="">
-        </a-box>
-
-        <a-box
-            material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
-            scale="148.5 10 1" position="-75.26121 5 316.8293" geometry="" rotation="">
-        </a-box>
-
-        <a-box
-            material="color: #ffffff; src: #stoneWall; repeat: 0.44 1.29; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2; offset: -0.03 -0.04"
-            scale="2 6.5 1" position="-0.034 6.748 316.829" geometry="" rotation="">
-        </a-box>
-        <!-------------------------------PORTA FINAL-------------------------------->
-        <a-box id="portaAvancar2" material="color: #ffffff; src: #wood; repeat: 0.5 0.7; normalMap: #woodNRM"
-            scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 316.98526" sound="src: #door4open; volume: 5" play
-            event-set__DoorOpen="_event: click; _target: #portaAvancar2; rotation: 0 90 0; position: 0.842 1.75 318.215">
-
-            <a-image material="color: #ffffff; src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.3 0.2 0.2">
-            </a-image>
-        </a-box>
-
-        <!-----------------------------------------------SALA 2 ARVORES E OBJETOS---------------------------------->
-        <a-entity position="11.23597 3 30.08456">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="68.53244 3 49.57875">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="68.53244 3 90.32571">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="68.53244 3 143.7997">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="25.77005 3 83.92435">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="109.30466 3 57.12265">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="108.27435 3 107.16372">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="108.87653 3 168.10082">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="54.30065 3 198.32361">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="91.37538 3 236.94398">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="127.39291 3 201.69795">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="56.70814 3 247.04724">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="116.33424 3 270.4111">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="133.49696 3 124.29314">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="73.09364 3 286.70198">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-72.84609 3 66.98373">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-123.19268 3 57.10121">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-42.54818 3 104.54248">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-90.15815 3 100.35793">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-125.04632 3 122.46561">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-74.24461 3 156.02848">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-35.38372 3 172.44302">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-116.74311 3 164.4959">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-79.02526 3 203.60063">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-119.01474 3 211.14761">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-43.93844 3 233.64886">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-115.43788 3 253.35937">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-76.69181 3 280.72567">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-entity position="-115.63562 3 291.98699">
-            <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material="" geometry=""></a-cone>
-            <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
-            <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
-        </a-entity>
-
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="-4.55113 0.3 35" radius-top="0.2">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0">
-
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat">
-                <a-entity light="type: point; color:#ffed94;
-                intensity: 0.5;
-                distance: 30;
-                penumbra: 0.2;
-                castShadow: true;" position="0 0 0"></a-entity>
-            </a-sphere>
-        </a-cone>
-
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="4.5 0.3 35" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
-
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 -2.10546" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="-4.551 0.3 95" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
 
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+
+
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 3.4 0.28; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="0.5 4 0.5" position="-14.969 2.00576 3.858" geometry="">
+
+            </a-box>
+
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.71323 2 3.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-15.21541 2 3.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 3.612" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="4.551 0.3 95" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
-
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 4 0.5" position="-14.9695 2 4.10546" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="-4.551 0.3 155" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
 
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+
+
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 3.4 0.28; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="0.5 2 0.5" position="-3.969 1 3.858" geometry="">
+
+            </a-box>
+
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.71323 1 3.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-4.21541 1 3.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 3.612" rotation="0 90 0" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 4.10546" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="4.551 0.3 155" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
 
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+
+            <a-box material="color: #ffffff; 
+                src: #wood; 
+                repeat: 3.4 0.28; 
+                normalMap: #woodNRM; 
+                normalTextureRepeat: 3.4 0.28" scale="0.5 2 0.5" position="-3.969 1 -1.858" geometry="">
+
+            </a-box>
+
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.71323 1 -1.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-4.21541 1 -1.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 -1.612" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="-4.551 0.3 185" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
-
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2 0.5" position="-3.9695 1 -2.10546" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="4.551 0.3 185" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
 
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+
+            <a-box material="color: #ffffff; 
+            src: #toy1; 
+            repeat: -0.07 1.04; 
+            normalMap: #toy1NRM; 
+            normalTextureRepeat: 3.4 0.28" scale="11 0.5 6.2" position="-9.21573 2.25518 0.99465" geometry="">
+            </a-box>
+
+            <!-----------------------PORTA NIVEL 2-------------------------------->
+            <a-box id="portaAvancar" material="color: #ffffff; src: #wood; repeat: 0.5 0.7; normalMap: #woodNRM"
+                scale="2 3.5 0.5" rotation="" position="0 1.75 17" sound="src: #door4open; volume: 5" play>
+
+                <a-image material="color: #ffffff; src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.3 0.2 0.2"
+                    geometry="">
+                </a-image>
+
+            </a-box>
+
+
+
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.996 1 3.63643" rotation="0 90 0">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.996 1 3.1429" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="-4.551 0.3 245" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="10.74591 1 3.38742" geometry="">
+            </a-box>
 
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="11.25068 1 3.387" geometry="">
+            </a-box>
+
+
+
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.71323 1 -1.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="15.21541 1 -1.858" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.9695 1 -1.612" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="4.551 0.3 245" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
-
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.9695 1 -2.10546" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="-4.551 0.3 305" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
 
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="15.21669 1 3.387" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.72275 1 3.387" geometry="">
+            </a-box>
+
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.96775 1 3.63643" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-cone
-            material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-            scale="0.7 0.7 0.7" position="4.551 0.3 305" radius-top="0.2" geometry="">
-            <a-cylinder
-                material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
-                scale="0.2 5 0.2" position="0 3 0" geometry="">
-
-            </a-cylinder>
-            <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+            <a-box material="color: #ffffff; 
+            src: #wood; 
+            repeat: -0.07 1.04; 
+            normalMap: #woodNRM; 
+            normalTextureRepeat: 3.4 0.28" scale="0.01 2.1 0.5" position="14.96775 1 3.1312" rotation="0 90 0"
                 geometry="">
-                <a-entity
-                    light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
-                    position=""></a-entity>
-            </a-sphere>
-        </a-cone>
+            </a-box>
 
-        <a-entity id="panels">
+            <!-------------------------CHÃO-------------------------------->
+            <a-plane position="0 0 -5.22353" rotation="-90 0 0" width="40" height="45" color="green"
+                material="color: #ffffff; src: #wood; normal-map: #woodNRM; repeat: 10 10; normal-texture-repeat: 10 10"></a-plane>
 
-            <a-box item="item1" proximitylevel="Super Cold" position="2.64054 0.2 170.1887" rotation="0 180 0"
-                color="green" scale="20 20 305" material="opacity: 0"></a-box>
+            <a-sky src="#nightSky" scale="25 5 25" radius="90" repeat="15 20">
 
-            <a-box item="item2" proximitylevel="Super Cold" position="34.76646 0.2 25.94578" rotation="0 180 0"
-                color="green" scale="10 20 20" material="opacity: 0"></a-box>
+            </a-sky>
 
-            <a-box item="item3" proximitylevel="Super Cold" position="47.25642 0.2 32.02436" rotation="0 180 0"
-                color="green" scale="20 20 10" material="opacity: 0"></a-box>
+            <!---------------------------CHÃO SALA 2-------------------------->
 
-            <a-box item="item4" proximitylevel="Super Cold" position="55.18949 0.2 26.18178" rotation="0 180 0"
-                color="green" scale="10 20 20" material="opacity: 0"></a-box>
+            <a-plane position="0 0 167.24623" rotation="-90 0 0" scale="300 300 1"
+                material="color: #ffffff; src: #ground; normal-map: #groundNRM; repeat: 20 20; normalTextureRepeat: 20 20">
+            </a-plane>
 
-            <a-box item="item5" proximitylevel="Super Cold" position="106.26106 0.2 87.04746" rotation="0 180 0"
-                color="green" scale="70 20 20" material="opacity: 0"></a-box>
+            <a-box material="color: #ffffff;
+                             src: #stoneWall;
+                             repeat: 30 2;
+                             normal-map: #stoneWallNRM;
+                             normal-texture-repeat: 30 2;" scale="134 10 1" position="-83.48951 5 16.763">
+            </a-box>
 
-            <a-box item="item6" proximitylevel="Super Cold" position="72.54124 0.2 128.13343" rotation="0 180 0"
-                color="green" scale="20 20 70" material="opacity: 0"></a-box>
+            <a-box
+                material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+                scale="134 10 1" position="83.442 5 16.773" geometry="">
+            </a-box>
 
-            <a-box item="item7" proximitylevel="Super Cold" position="109.15396 0.2 159.84767" rotation="0 180 0"
-                color="green" scale="70 20 20" material="opacity: 0"></a-box>
+            <a-box
+                material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+                scale="300 10 1" position="149.93603 5 167.30792" geometry="" rotation="0 90 0">
+            </a-box>
 
-            <a-box item="item8" proximitylevel="Super Cold" position="146.60876 0.2 123.52618" rotation="0 180 0"
-                color="green" scale="20 20 70" material="opacity: 0"></a-box>
+            <a-box
+                material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+                scale="300 10 1" position="-149.95245 5 167.30792" geometry="" rotation="0 90 0">
+            </a-box>
 
-            <a-box item="item9" proximitylevel="Super Cold" position="-62.29312 0.2 66.191" rotation="0 180 0"
-                color="green" scale="10 20 20" material="opacity: 0"></a-box>
+            <a-box
+                material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+                scale="148.5 10 1" position="75.2047 5 316.8293" geometry="" rotation="">
+            </a-box>
+
+            <a-box
+                material="color: #ffffff; src: #stoneWall; repeat: 30 2; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2"
+                scale="148.5 10 1" position="-75.26121 5 316.8293" geometry="" rotation="">
+            </a-box>
+
+            <a-box
+                material="color: #ffffff; src: #stoneWall; repeat: 0.44 1.29; normalMap: #stoneWallNRM; normalTextureRepeat: 30 2; offset: -0.03 -0.04"
+                scale="2 6.5 1" position="-0.034 6.748 316.829" geometry="" rotation="">
+            </a-box>
+            <!-------------------------------PORTA FINAL-------------------------------->
+            <a-box id="portaAvancar2" material="color: #ffffff; src: #wood; repeat: 0.5 0.7; normalMap: #woodNRM"
+                scale="2 3.5 0.5" rotation="0 0 0" position="0 1.75 316.98526" sound="src: #door4open; volume: 5" play
+                event-set__DoorOpen="_event: click; _target: #portaAvancar2; rotation: 0 90 0; position: 0.842 1.75 318.215">
+
+                <a-image material="color: #ffffff; src: #doorKnob" position="-0.253 -0.024 -0.513" scale="0.3 0.2 0.2">
+                </a-image>
+            </a-box>
+
+            <!-----------------------------------------------SALA 2 ARVORES E OBJETOS---------------------------------->
+            <a-entity position="11.23597 3 30.08456">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="68.53244 3 49.57875">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="68.53244 3 90.32571">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="68.53244 3 143.7997">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="25.77005 3 83.92435">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="109.30466 3 57.12265">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="108.27435 3 107.16372">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="108.87653 3 168.10082">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="54.30065 3 198.32361">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="91.37538 3 236.94398">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="127.39291 3 201.69795">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="56.70814 3 247.04724">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="116.33424 3 270.4111">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="133.49696 3 124.29314">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="73.09364 3 286.70198">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-72.84609 3 66.98373">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-123.19268 3 57.10121">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-42.54818 3 104.54248">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-90.15815 3 100.35793">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-125.04632 3 122.46561">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-74.24461 3 156.02848">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-35.38372 3 172.44302">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-116.74311 3 164.4959">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-79.02526 3 203.60063">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-119.01474 3 211.14761">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-43.93844 3 233.64886">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-115.43788 3 253.35937">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-76.69181 3 280.72567">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-entity position="-115.63562 3 291.98699">
+                <a-cone color="#8B4513" height="6" radius-bottom="0.5" radius-top="0.5" material=""
+                    geometry=""></a-cone>
+                <a-sphere color="#228B22" radius="1.2" position="0 4 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 3 -1" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="-1 3 0" material="" geometry=""></a-sphere>
+                <a-sphere color="#228B22" radius=".8" position="0 5.5 0" material="" geometry=""></a-sphere>
+            </a-entity>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="-4.55113 0.3 35" radius-top="0.2">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat">
+                    <a-entity light="type: point; color:#ffed94;
+                    intensity: 0.5;
+                    distance: 30;
+                    penumbra: 0.2;
+                    castShadow: true;" position="0 0 0"></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="4.5 0.3 35" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="-4.551 0.3 95" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="4.551 0.3 95" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="-4.551 0.3 155" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="4.551 0.3 155" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="-4.551 0.3 185" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="4.551 0.3 185" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="-4.551 0.3 245" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="4.551 0.3 245" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="-4.551 0.3 305" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-cone
+                material="color: #ffffff; src: #lampPostMetal; repeat: 4 1.5; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                scale="0.7 0.7 0.7" position="4.551 0.3 305" radius-top="0.2" geometry="">
+                <a-cylinder
+                    material="color: #ffffff; src: #lampPostMetal; repeat: 2 4; normalMap: #lampPostMetalNRM; normalTextureRepeat: 4 2"
+                    scale="0.2 5 0.2" position="0 3 0" geometry="">
+
+                </a-cylinder>
+                <a-sphere material="color: #ffd500" opacity="0.5" scale="0.7 0.7 0.7" position="0 6.1 0" shader="flat"
+                    geometry="">
+                    <a-entity
+                        light="type: point; color: #ffed94; intensity: 0.5; distance: 30; penumbra: 0.2; castShadow: true"
+                        position=""></a-entity>
+                </a-sphere>
+            </a-cone>
+
+            <a-entity id="panels">
+
+                <a-box item="item1" proximitylevel="Super Cold" position="2.64054 0.2 170.1887" rotation="0 180 0"
+                    color="green" scale="20 20 305" material="opacity: 0"></a-box>
+
+                <a-box item="item2" proximitylevel="Super Cold" position="34.76646 0.2 25.94578" rotation="0 180 0"
+                    color="green" scale="10 20 20" material="opacity: 0"></a-box>
+
+                <a-box item="item3" proximitylevel="Super Cold" position="47.25642 0.2 32.02436" rotation="0 180 0"
+                    color="green" scale="20 20 10" material="opacity: 0"></a-box>
+
+                <a-box item="item4" proximitylevel="Super Cold" position="55.18949 0.2 26.18178" rotation="0 180 0"
+                    color="green" scale="10 20 20" material="opacity: 0"></a-box>
+
+                <a-box item="item5" proximitylevel="Super Cold" position="106.26106 0.2 87.04746" rotation="0 180 0"
+                    color="green" scale="70 20 20" material="opacity: 0"></a-box>
+
+                <a-box item="item6" proximitylevel="Super Cold" position="72.54124 0.2 128.13343" rotation="0 180 0"
+                    color="green" scale="20 20 70" material="opacity: 0"></a-box>
+
+                <a-box item="item7" proximitylevel="Super Cold" position="109.15396 0.2 159.84767" rotation="0 180 0"
+                    color="green" scale="70 20 20" material="opacity: 0"></a-box>
+
+                <a-box item="item8" proximitylevel="Super Cold" position="146.60876 0.2 123.52618" rotation="0 180 0"
+                    color="green" scale="20 20 70" material="opacity: 0"></a-box>
+
+                <a-box item="item9" proximitylevel="Super Cold" position="-62.29312 0.2 66.191" rotation="0 180 0"
+                    color="green" scale="10 20 20" material="opacity: 0"></a-box>
 
 
-            <a-box item="item10" proximitylevel="Super Cold" position="-83.23362 0.2 66.37903" rotation="0 180 0"
-                color="green" scale="10 20 20" material="opacity: 0"></a-box>
+                <a-box item="item10" proximitylevel="Super Cold" position="-83.23362 0.2 66.37903" rotation="0 180 0"
+                    color="green" scale="10 20 20" material="opacity: 0"></a-box>
 
-            <a-box item="item11" proximitylevel="Super Cold" position="-73.12679 0.2 76.8568" rotation="0 180 0"
-                color="green" scale="20 20 10" material="opacity: 0"></a-box>
+                <a-box item="item11" proximitylevel="Super Cold" position="-73.12679 0.2 76.8568" rotation="0 180 0"
+                    color="green" scale="20 20 10" material="opacity: 0"></a-box>
 
-            <a-box item="item12" proximitylevel="Super Cold" position="-72.25393 0.2 55.99987" rotation="0 180 0"
-                color="green" scale="20 20 10" material="opacity: 0"></a-box>
-
-
-            <a-box item="item13" proximitylevel="Super Cold" position="23.2259 0.2 281.78684" rotation="0 180 0"
-                color="green" scale="30 20 20" material="opacity: 0"></a-box>
-
-            <a-box item="item14" proximitylevel="Super Cold" position="43.23704 0.2 303.53279" rotation="0 180 0"
-                color="green" scale="20 20 30" material="opacity: 0"></a-box>
+                <a-box item="item12" proximitylevel="Super Cold" position="-72.25393 0.2 55.99987" rotation="0 180 0"
+                    color="green" scale="20 20 10" material="opacity: 0"></a-box>
 
 
-            <a-box item="item15" proximitylevel="Super Cold" position="-110.18103 0.2 214.26779" rotation="0 180 0"
-                color="green" scale="70 20 20" material="opacity: 0"></a-box>
+                <a-box item="item13" proximitylevel="Super Cold" position="23.2259 0.2 281.78684" rotation="0 180 0"
+                    color="green" scale="30 20 20" material="opacity: 0"></a-box>
+
+                <a-box item="item14" proximitylevel="Super Cold" position="43.23704 0.2 303.53279" rotation="0 180 0"
+                    color="green" scale="20 20 30" material="opacity: 0"></a-box>
 
 
-            <a-box item="item16" proximitylevel="Super Cold" position="-111.17877 0.2 287.88484" rotation="0 180 0"
-                color="green" scale="70 20 20" material="opacity: 0"></a-box>
-
-            <a-box item="item17" proximitylevel="Super Cold" position="-74.44036 0.2 245.29817" rotation="0 180 0"
-                color="green" scale="20 20 70" material="opacity: 0"></a-box>
-
-            <a-box item="item18" proximitylevel="Super Cold" position="-146.47135 0.2 248.03179" rotation="0 180 0"
-                color="green" scale="20 20 70" material="opacity: 0"></a-box>
+                <a-box item="item15" proximitylevel="Super Cold" position="-110.18103 0.2 214.26779" rotation="0 180 0"
+                    color="green" scale="70 20 20" material="opacity: 0"></a-box>
 
 
-            <a-box item="item1" proximitylevel="Super Hot" position="-72.98357 0.2 66.57751" rotation="0 180 0"
-                color="violet" scale="10 20 10" material="opacity: 0"></a-box>
+                <a-box item="item16" proximitylevel="Super Cold" position="-111.17877 0.2 287.88484" rotation="0 180 0"
+                    color="green" scale="70 20 20" material="opacity: 0"></a-box>
 
-            <a-box item="item2" proximitylevel="Super Hot" position="109.25654 0.2 123.27727" rotation="0 180 0"
-                color="violet" scale="50 20 50" material="opacity: 0"></a-box>
+                <a-box item="item17" proximitylevel="Super Cold" position="-74.44036 0.2 245.29817" rotation="0 180 0"
+                    color="green" scale="20 20 70" material="opacity: 0"></a-box>
 
-            <a-box item="item3" proximitylevel="Super Hot" position="45.07489 0.2 21.4894" rotation="0 180 0"
-                color="violet" scale="10 20 10" material="opacity: 0"></a-box>
-
-            <a-box item="item4" proximitylevel="Super Hot" position="23.66747 0.2 308.43525" rotation="0 180 0"
-                color="violet" scale="20 20 20" material="opacity: 0"></a-box>
-
-            <a-box item="item2" proximitylevel="Super Hot" position="-110.1067 0.2 250.35153" rotation="0 180 0"
-                color="violet" scale="50 20 50" material="opacity: 0"></a-box>
+                <a-box item="item18" proximitylevel="Super Cold" position="-146.47135 0.2 248.03179" rotation="0 180 0"
+                    color="green" scale="20 20 70" material="opacity: 0"></a-box>
 
 
-        </a-entity>
+                <a-box item="item1" proximitylevel="Super Hot" position="-72.98357 0.2 66.57751" rotation="0 180 0"
+                    color="violet" scale="10 20 10" material="opacity: 0"></a-box>
 
-        <a-entity id="ClickableItems">
+                <a-box item="item2" proximitylevel="Super Hot" position="109.25654 0.2 123.27727" rotation="0 180 0"
+                    color="violet" scale="50 20 50" material="opacity: 0"></a-box>
 
-            <a-box id="item1" color="white" scale="0.1 0.7 0.4" position="-73.38509 3.03251 66.986"
-                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50"></a-box>
+                <a-box item="item3" proximitylevel="Super Hot" position="45.07489 0.2 21.4894" rotation="0 180 0"
+                    color="violet" scale="10 20 10" material="opacity: 0"></a-box>
 
-            <a-box id="item2" color="white" scale="0.1 0.7 0.4" position="133.96596 0.33741 124.25844"
-                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50"></a-box>
+                <a-box item="item4" proximitylevel="Super Hot" position="23.66747 0.2 308.43525" rotation="0 180 0"
+                    color="violet" scale="20 20 20" material="opacity: 0"></a-box>
 
-            <a-box id="item3" color="white" scale="0.1 0.7 0.4" position="91.27879 -0.00265 103.04186"
-                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 0 90"></a-box>
-
-            <a-box id="item4" color="white" scale="0.1 0.7 0.4" position="44.91291 1 17.28354"
-                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
-
-            <a-box id="item5" color="white" scale="0.1 0.7 0.4" position="20 1 316.2885"
-                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
-
-            <a-box id="item6" color="white" scale="0.1 0.7 0.4" position="-115.39005 1 252.88056"
-                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
-
-            <a-box id="item7" color="white" scale="0.1 0.7 0.4" position="-0.03856 3.94027 17.39034"
-                sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 89 0"></a-box>
-
-        </a-entity>
+                <a-box item="item2" proximitylevel="Super Hot" position="-110.1067 0.2 250.35153" rotation="0 180 0"
+                    color="violet" scale="50 20 50" material="opacity: 0"></a-box>
 
 
+            </a-entity>
 
-        </a-box>
-        <!--sounds-->
-        <a-entity id="happySongPlay"
-            sound="src: #happySong; autoplay: true; loop: true; volume: 0.15; maxDistance: 10000; refDistance: 10000">
-        </a-entity>
+            <a-entity id="ClickableItems">
 
-        <a-entity id="horrorSongPlay"
-            sound="src: #horrorSong; autoplay: false; loop: true; volume: 0.25; maxDistance: 10000; refDistance: 10000">
-        </a-entity>
+                <a-box id="item1" color="white" scale="0.1 0.7 0.4" position="-73.38509 3.03251 66.986"
+                    sound="src: ./Sounds/Paper Ripping.mp3; volume: 50"></a-box>
 
-        <a-entity id="wolf"
-            sound="src: ./Sounds/wolf.mp3; autoplay: false; loop: true; maxDistance: 100; refDistance: 50"
-            position="150 0 120">
-        </a-entity>
+                <a-box id="item2" color="white" scale="0.1 0.7 0.4" position="133.96596 0.33741 124.25844"
+                    sound="src: ./Sounds/Paper Ripping.mp3; volume: 50"></a-box>
 
-        <a-entity id="cricket"
-            sound="src: ./Sounds/cricket.mp3; autoplay: false; loop: true; maxDistance: 10000; ref:10000">
-        </a-entity>
+                <a-box id="item3" color="white" scale="0.1 0.7 0.4" position="91.27879 -0.00265 103.04186"
+                    sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 0 90"></a-box>
 
-    </a-scene>
+                <a-box id="item4" color="white" scale="0.1 0.7 0.4" position="44.91291 1 17.28354"
+                    sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
+
+                <a-box id="item5" color="white" scale="0.1 0.7 0.4" position="20 1 316.2885"
+                    sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
+
+                <a-box id="item6" color="white" scale="0.1 0.7 0.4" position="-115.39005 1 252.88056"
+                    sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 90 0"></a-box>
+
+                <a-box id="item7" color="white" scale="0.1 0.7 0.4" position="-0.03856 3.94027 17.39034"
+                    sound="src: ./Sounds/Paper Ripping.mp3; volume: 50" rotation="0 89 0"></a-box>
+
+            </a-entity>
+
+
+
+            </a-box>
+            <!--sounds-->
+            <a-entity id="happySongPlay"
+                sound="src: #happySong; autoplay: false; loop: true; volume: 0.15; maxDistance: 10000; refDistance: 10000">
+            </a-entity>
+
+            <a-entity id="horrorSongPlay"
+                sound="src: #horrorSong; autoplay: false; loop: true; volume: 0.25; maxDistance: 10000; refDistance: 10000">
+            </a-entity>
+
+            <a-entity id="wolf"
+                sound="src: ./Sounds/wolf.mp3; autoplay: false; loop: true; maxDistance: 100; refDistance: 50"
+                position="150 0 120">
+            </a-entity>
+
+            <a-entity id="cricket"
+                sound="src: ./Sounds/cricket.mp3; autoplay: false; loop: true; maxDistance: 10000; ref:10000">
+            </a-entity>
+
+        </a-scene>
+    </div>
+
     <div id="inventory">Inventory: Empty</div>
     <div id="HotColdMeter"></div>
 </body>

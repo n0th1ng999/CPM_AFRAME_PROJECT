@@ -1,3 +1,7 @@
+:root {
+  font-family: "Shadows Into Light", cursive;
+}
+
 #inventory {
   position: fixed;
   top: 20px;
@@ -7,11 +11,60 @@
   border-radius: 10px;
 }
 
-#HotColdMeter{
+#HotColdMeter {
   position: fixed;
   bottom: 20px;
   left: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   border-radius: 10px;
+}
+
+#landingPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("./imgs/EscapeRooms.jpg");
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+#landingPage button {
+  width: 100px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: rgb(255, 55, 0);
+  border: 0;
+  font: "Shadows Into Light";
+}
+#landingPage button h2 {
+  font: "Shadows Into Light";
+}
+
+#landingPage button:hover {
+  color: rgba(255, 55, 0, 0.7);
+}
+#landingPage button:active {
+  color: rgba(255, 55, 0, 0.5);
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 5px rgba(255, 25, 0, 0.5);
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+body {
+  font: "Shadows Into Light";
+  margin: 0;
+  border: 0;
 }
