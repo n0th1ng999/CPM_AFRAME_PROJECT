@@ -305,6 +305,31 @@ function showTutorialMsg() {
 const playBtn = document.querySelector("#playBtn");
 const gameScene = document.getElementById("gameScene");
 
+const horrorSong = new Audio("./Sounds/horrorSong.mp3");
+
+let isMuted = false;
+
+window.addEventListener("click", function () {
+  horrorSong.play();
+});
+
+function toggleMute() {
+  if (isMuted) {
+    horrorSong.muted = false;
+    horrorSong.currentTime = 0; // set playback time to zero
+    isMuted = false;
+    document.getElementById("muteBtn").innerText = "MUTE";
+  } else {
+    horrorSong.muted = true;
+    isMuted = true;
+    document.getElementById("muteBtn").innerText = "UNMUTE";
+  }
+}
+
 playBtn.addEventListener("click", () => {
   gameScene.style.display = "block";
+  horrorSong.muted = true;
+  isMuted = true;
 });
+
+document.getElementById("muteBtn").addEventListener("click", toggleMute);
